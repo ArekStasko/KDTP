@@ -1,0 +1,6 @@
+﻿services:
+  savely:
+    image: savely
+    build:
+      context: .
+      dockerfile: savely/Dockerfile
