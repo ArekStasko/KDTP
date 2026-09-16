@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Savely.Domain")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a0f372bfc964f41f282deea25c623d0fe4115a34")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+98ee7fe68f728521e82e46131c260ad088145e74")]
 [assembly: System.Reflection.AssemblyProductAttribute("Savely.Domain")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Savely.Domain")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
