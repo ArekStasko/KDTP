@@ -17,13 +17,13 @@ steps:
     packageType: 'sdk'
     version: '8.x'
 
-- script: dotnet restore
+- script: dotnet restore savely.sln
   displayName: 'Restore'
 
-- script: dotnet build --configuration $(buildConfiguration) --no-restore
+- script: dotnet build savely.sln --configuration $(buildConfiguration) --no-restore
   displayName: 'Build'
 
-- script: dotnet publish --configuration $(buildConfiguration) --output $(Build.ArtifactStagingDirectory)/publish
+- script: dotnet publish savely.Api/savely.Api.csproj --configuration $(buildConfiguration) --output $(Build.ArtifactStagingDirectory)/publish
   displayName: 'Publish'
 
 - task: PublishPipelineArtifact@1
