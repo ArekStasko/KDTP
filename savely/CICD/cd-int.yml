@@ -14,36 +14,9 @@ pool:
   vmImage: ubuntu-latest
 
 steps:
-  - script: |
-      echo "Pipeline: $(resources.pipeline.savelyCI.pipelineName)"
-      echo "Run ID: $(resources.pipeline.savelyCI.runID)"
-      echo "Source branch: $(resources.pipeline.savelyCI.sourceBranch)"
-      echo "Source commit: $(resources.pipeline.savelyCI.sourceCommit)"
-    displayName: 'Show CI resource information'
-
   - download: savelyCI
     artifact: savely-api
     displayName: 'Download application artifact'
-
-  - task: AzureCLI@2
-    displayName: 'Check Azure resources'
-    inputs:
-      azureSubscription: 'sc-savely-azure'
-      scriptType: 'bash'
-      scriptLocation: 'inlineScript'
-      inlineScript: |
-        echo "Subscription:"
-        az account show \
-          --query "{name:name, id:id}" \
-          -o table
-
-        echo ""
-        echo "App Service:"
-        az webapp show \
-          --name savely-api-int \
-          --resource-group rg-savely-int \
-          --query "{name:name, state:state, resourceGroup:resourceGroup}" \
-          -o table
 
   - task: AzureWebApp@1
     displayName: 'Deploy to INT'
