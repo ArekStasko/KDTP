@@ -1,0 +1,34 @@
+trigger: none
+
+resources:
+  pipelines:
+    - pipeline: savelyCI
+      source: savely
+      branch: refs/heads/develop
+      trigger:
+        branches:
+          include:
+            - develop
+
+pool:
+  vmImage: ubuntu-latest
+
+steps:
+  - script: |
+      echo "Pipeline: $(resources.pipeline.savelyCI.pipelineName)"
+      echo "Run ID: $(resources.pipeline.savelyCI.runID)"
+      echo "Source branch: $(resources.pipeline.savelyCI.sourceBranch)"
+      echo "Source commit: $(resources.pipeline.savelyCI.sourceCommit)"
+    displayName: 'Show CI resource information'
+
+  - download: savelyCI
+    artifact: savely-api
+    displayName: 'Download application artifact'
+
+  - task: AzureWebApp@1
+    displayName: 'Deploy to INT'
+    inputs:
+      azureSubscription: 'sc-savely-azure'
+      appType: 'webAppLinux'
+      appName: 'savely-api-int'
+      package: '$(Pipeline.Workspace)/savelyCI/savely-api'

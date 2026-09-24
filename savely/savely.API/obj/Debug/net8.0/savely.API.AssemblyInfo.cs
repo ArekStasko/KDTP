@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("savely.API")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+98ee7fe68f728521e82e46131c260ad088145e74")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d34c7451f7ebd96197228921b37697f87ad64c6f")]
 [assembly: System.Reflection.AssemblyProductAttribute("savely.API")]
 [assembly: System.Reflection.AssemblyTitleAttribute("savely.API")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
