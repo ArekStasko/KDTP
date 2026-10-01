@@ -1,0 +1,27 @@
+trigger: none
+
+resources:
+  pipelines:
+    - pipeline: kdtpCI
+      source: kdtp
+      branch: refs/heads/develop
+      trigger:
+        branches:
+          include:
+            - develop
+
+pool:
+  vmImage: ubuntu-latest
+
+steps:
+  - download: kdtpCI
+    artifact: kdtp-api
+    displayName: 'Download application artifact'
+
+  - task: AzureWebApp@1
+    displayName: 'Deploy to INT'
+    inputs:
+      azureSubscription: 'sc-savely-azure'
+      appType: 'webAppLinux'
+      appName: 'savely-api-int'
+      package: '$(Pipeline.Workspace)/kdtpCI/kdtp-api'

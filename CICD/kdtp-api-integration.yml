@@ -1,0 +1,33 @@
+trigger:
+  branches:
+    include:
+      - develop
+
+pool:
+  vmImage: ubuntu-latest
+
+variables:
+  buildConfiguration: 'Release'
+
+steps:
+
+- task: UseDotNet@2
+  displayName: 'Install .NET SDK'
+  inputs:
+    packageType: 'sdk'
+    version: '8.x'
+
+- script: dotnet restore Kdtp-Api/KDTP.sln
+  displayName: 'Restore'
+
+- script: dotnet build Kdtp-Api/KDTP.sln --configuration $(buildConfiguration) --no-restore
+  displayName: 'Build'
+
+- script: dotnet publish Kdtp-Api/Kdtp.Api/Kdtp.Api.csproj --configuration $(buildConfiguration) --output $(Build.ArtifactStagingDirectory)/publish
+  displayName: 'Publish'
+
+- task: PublishPipelineArtifact@1
+  displayName: 'Publish artifact'
+  inputs:
+    targetPath: '$(Build.ArtifactStagingDirectory)/publish'
+    artifact: 'kdtp-api'

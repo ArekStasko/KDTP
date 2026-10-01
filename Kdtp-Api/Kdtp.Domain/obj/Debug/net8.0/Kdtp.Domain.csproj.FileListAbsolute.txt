@@ -1,0 +1,12 @@
+/home/arekstasko/sources/repos/KDTP/KDTP/Kdtp.Domain/bin/Debug/net8.0/Kdtp.Domain.deps.json
+/home/arekstasko/sources/repos/KDTP/KDTP/Kdtp.Domain/bin/Debug/net8.0/Kdtp.Domain.dll
+/home/arekstasko/sources/repos/KDTP/KDTP/Kdtp.Domain/bin/Debug/net8.0/Kdtp.Domain.pdb
+/home/arekstasko/sources/repos/KDTP/KDTP/Kdtp.Domain/obj/Debug/net8.0/Kdtp.Domain.GeneratedMSBuildEditorConfig.editorconfig
+/home/arekstasko/sources/repos/KDTP/KDTP/Kdtp.Domain/obj/Debug/net8.0/Kdtp.Domain.AssemblyInfoInputs.cache
+/home/arekstasko/sources/repos/KDTP/KDTP/Kdtp.Domain/obj/Debug/net8.0/Kdtp.Domain.AssemblyInfo.cs
+/home/arekstasko/sources/repos/KDTP/KDTP/Kdtp.Domain/obj/Debug/net8.0/Kdtp.Domain.csproj.CoreCompileInputs.cache
+/home/arekstasko/sources/repos/KDTP/KDTP/Kdtp.Domain/obj/Debug/net8.0/Kdtp.Domain.sourcelink.json
+/home/arekstasko/sources/repos/KDTP/KDTP/Kdtp.Domain/obj/Debug/net8.0/Kdtp.Domain.dll
+/home/arekstasko/sources/repos/KDTP/KDTP/Kdtp.Domain/obj/Debug/net8.0/refint/Kdtp.Domain.dll
+/home/arekstasko/sources/repos/KDTP/KDTP/Kdtp.Domain/obj/Debug/net8.0/Kdtp.Domain.pdb
+/home/arekstasko/sources/repos/KDTP/KDTP/Kdtp.Domain/obj/Debug/net8.0/ref/Kdtp.Domain.dll

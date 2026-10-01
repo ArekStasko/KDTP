@@ -1,0 +1,16 @@
+/home/arekstasko/sources/repos/KDTP/KDTP/Kdtp.Services/bin/Debug/net8.0/Kdtp.Services.deps.json
+/home/arekstasko/sources/repos/KDTP/KDTP/Kdtp.Services/bin/Debug/net8.0/Kdtp.Services.dll
+/home/arekstasko/sources/repos/KDTP/KDTP/Kdtp.Services/bin/Debug/net8.0/Kdtp.Services.pdb
+/home/arekstasko/sources/repos/KDTP/KDTP/Kdtp.Services/bin/Debug/net8.0/Kdtp.Domain.dll
+/home/arekstasko/sources/repos/KDTP/KDTP/Kdtp.Services/bin/Debug/net8.0/Kdtp.Domain.pdb
+/home/arekstasko/sources/repos/KDTP/KDTP/Kdtp.Services/obj/Debug/net8.0/Kdtp.Services.csproj.AssemblyReference.cache
+/home/arekstasko/sources/repos/KDTP/KDTP/Kdtp.Services/obj/Debug/net8.0/Kdtp.Services.GeneratedMSBuildEditorConfig.editorconfig
+/home/arekstasko/sources/repos/KDTP/KDTP/Kdtp.Services/obj/Debug/net8.0/Kdtp.Services.AssemblyInfoInputs.cache
+/home/arekstasko/sources/repos/KDTP/KDTP/Kdtp.Services/obj/Debug/net8.0/Kdtp.Services.AssemblyInfo.cs
+/home/arekstasko/sources/repos/KDTP/KDTP/Kdtp.Services/obj/Debug/net8.0/Kdtp.Services.csproj.CoreCompileInputs.cache
+/home/arekstasko/sources/repos/KDTP/KDTP/Kdtp.Services/obj/Debug/net8.0/Kdtp.Services.sourcelink.json
+/home/arekstasko/sources/repos/KDTP/KDTP/Kdtp.Services/obj/Debug/net8.0/Kdtp.Ser.14AE8315.Up2Date
+/home/arekstasko/sources/repos/KDTP/KDTP/Kdtp.Services/obj/Debug/net8.0/Kdtp.Services.dll
+/home/arekstasko/sources/repos/KDTP/KDTP/Kdtp.Services/obj/Debug/net8.0/refint/Kdtp.Services.dll
+/home/arekstasko/sources/repos/KDTP/KDTP/Kdtp.Services/obj/Debug/net8.0/Kdtp.Services.pdb
+/home/arekstasko/sources/repos/KDTP/KDTP/Kdtp.Services/obj/Debug/net8.0/ref/Kdtp.Services.dll
