@@ -10,7 +10,7 @@ if (container) {
 
   root.render(
     <StrictMode>
-        <App />
+          <App />
     </StrictMode>,
   )
 } else {
