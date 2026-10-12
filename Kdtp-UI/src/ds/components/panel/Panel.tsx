@@ -6,12 +6,13 @@ import type {DsColor} from "../../color.ts";
 type PanelProps = {
     children: ReactNode;
     color: DsColor
+    backgroundColor: DsColor
     sx?: SxProps;
 };
 
-export const Panel = ({children, color, sx}: PanelProps) => {
+export const Panel = ({children, color, backgroundColor, sx}: PanelProps) => {
     return(
-        <Box sx={{...styles.container(color), ...sx}}>
+        <Box sx={{...styles.container(color, backgroundColor), ...sx}}>
             {children}
         </Box>
     )

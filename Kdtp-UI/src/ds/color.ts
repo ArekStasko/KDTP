@@ -7,6 +7,8 @@ export enum DsColor {
     LimeGreen = '#A8FF3C',
     Purple = '#C084FC',
     Orange = '#FF6B35',
+    Red = '#FF0000',
+    Blue = '#2986cc',
 
     // Base Colors
     SoftLavenderBackground = '#F0E6FF',

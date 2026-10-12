@@ -567,11 +567,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/arekstasko/sources/repos/KDTP/KDTP/Kdtp.Api/Kdtp.Api.csproj",
+      "projectUniqueName": "/home/arekstasko/sources/repos/KDTP/Kdtp-Api/Kdtp.Api/Kdtp.Api.csproj",
       "projectName": "Kdtp.Api",
-      "projectPath": "/home/arekstasko/sources/repos/KDTP/KDTP/Kdtp.Api/Kdtp.Api.csproj",
+      "projectPath": "/home/arekstasko/sources/repos/KDTP/Kdtp-Api/Kdtp.Api/Kdtp.Api.csproj",
       "packagesPath": "/home/arekstasko/.nuget/packages/",
-      "outputPath": "/home/arekstasko/sources/repos/KDTP/KDTP/Kdtp.Api/obj/",
+      "outputPath": "/home/arekstasko/sources/repos/KDTP/Kdtp-Api/Kdtp.Api/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/home/arekstasko/.nuget/NuGet/NuGet.Config"
@@ -589,8 +589,8 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "/home/arekstasko/sources/repos/KDTP/KDTP/Kdtp.Services/Kdtp.Services.csproj": {
-              "projectPath": "/home/arekstasko/sources/repos/KDTP/KDTP/Kdtp.Services/Kdtp.Services.csproj"
+            "/home/arekstasko/sources/repos/KDTP/Kdtp-Api/Kdtp.Services/Kdtp.Services.csproj": {
+              "projectPath": "/home/arekstasko/sources/repos/KDTP/Kdtp-Api/Kdtp.Services/Kdtp.Services.csproj"
             }
           }
         }

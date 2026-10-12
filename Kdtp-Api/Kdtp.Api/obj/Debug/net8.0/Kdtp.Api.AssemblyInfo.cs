@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Kdtp.Api")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+dc5b1455b60ffaeb37120d990b4b643882c0563c")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+629206887b1ca881468c4054eb57b90a5354539e")]
 [assembly: System.Reflection.AssemblyProductAttribute("Kdtp.Api")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Kdtp.Api")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

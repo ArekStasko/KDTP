@@ -6,9 +6,9 @@ const container = (color: DsColor, borderColor: DsColor) => ({
     borderStyle: 'solid',
     borderWidth: '3px',
     backgroundColor: color,
-    p: 1,
-    pr: 3,
-    pl: 3,
+    p: 0,
+    pr: 2,
+    pl: 2,
     fontSize: '12px',
 })
 

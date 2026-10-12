@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Ff1qPVD3HPg=",
+  "dgSpecHash": "qj7YnHQcOao=",
   "success": true,
-  "projectFilePath": "/home/arekstasko/sources/repos/KDTP/KDTP/Kdtp.Domain/Kdtp.Domain.csproj",
+  "projectFilePath": "/home/arekstasko/sources/repos/KDTP/Kdtp-Api/Kdtp.Domain/Kdtp.Domain.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }
