@@ -45,8 +45,8 @@ const pulseRotate = keyframes`
 `;
 
 export const Animations = {
-    jiggle: `${jiggle} 4s ease-in-out infinite`,
-    marqueeRight: `${marqueeRight} 45s linear infinite`,
-    pulseOpacity: `${pulseOpacity} 2s ease-in-out infinite`,
-    pulseRotate: `${pulseRotate} 2s ease-in-out infinite`,
+  jiggle: `${jiggle} 4s ease-in-out infinite`,
+  marqueeRight: `${marqueeRight} 45s linear infinite`,
+  pulseOpacity: `${pulseOpacity} 2s ease-in-out infinite`,
+  pulseRotate: `${pulseRotate} 2s ease-in-out infinite`,
 };
