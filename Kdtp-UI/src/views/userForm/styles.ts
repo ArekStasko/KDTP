@@ -6,12 +6,12 @@ const container = {
     alignItems: "center",
     justifyContent: "space-evenly",
     width: "100%",
-    height: "90%",
+    height: "100%",
 };
 
 const formWrapper = {
     width: '100%',
-    height: "50%",
+    height: "60%",
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
@@ -24,7 +24,7 @@ const formPanel = {
     alignItems: 'flex-start',
     justifyContent: 'space-around',
     width: '90%',
-    height: '80%',
+    height: '90%',
 }
 
 const subtitle = {
