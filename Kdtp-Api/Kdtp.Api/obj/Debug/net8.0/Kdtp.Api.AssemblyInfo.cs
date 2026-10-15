@@ -10,10 +10,11 @@
 using System;
 using System.Reflection;
 
+[assembly: Microsoft.Extensions.Configuration.UserSecrets.UserSecretsIdAttribute("08ae22a2-7e3f-455b-aa8c-06ddb723973c")]
 [assembly: System.Reflection.AssemblyCompanyAttribute("Kdtp.Api")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+629206887b1ca881468c4054eb57b90a5354539e")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+10dd7acc9ed86bc34d29e8dd0c7c80cbdd9efc4b")]
 [assembly: System.Reflection.AssemblyProductAttribute("Kdtp.Api")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Kdtp.Api")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

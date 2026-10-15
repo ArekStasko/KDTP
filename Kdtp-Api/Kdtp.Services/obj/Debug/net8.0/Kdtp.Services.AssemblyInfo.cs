@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Kdtp.Services")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+629206887b1ca881468c4054eb57b90a5354539e")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+10dd7acc9ed86bc34d29e8dd0c7c80cbdd9efc4b")]
 [assembly: System.Reflection.AssemblyProductAttribute("Kdtp.Services")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Kdtp.Services")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

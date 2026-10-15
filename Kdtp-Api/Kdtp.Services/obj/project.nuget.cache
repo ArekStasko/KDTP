@@ -1,11 +1,33 @@
 {
   "version": 2,
-  "dgSpecHash": "HbtWf/uQzeI=",
+  "dgSpecHash": "WwMENfnK/4A=",
   "success": true,
   "projectFilePath": "/home/arekstasko/sources/repos/KDTP/Kdtp-Api/Kdtp.Services/Kdtp.Services.csproj",
   "expectedPackageFiles": [
+    "/home/arekstasko/.nuget/packages/azure.core/1.63.0/azure.core.1.63.0.nupkg.sha512",
+    "/home/arekstasko/.nuget/packages/azure.messaging.webpubsub/1.7.0/azure.messaging.webpubsub.1.7.0.nupkg.sha512",
+    "/home/arekstasko/.nuget/packages/microsoft.azure.webpubsub.common/1.6.0/microsoft.azure.webpubsub.common.1.6.0.nupkg.sha512",
+    "/home/arekstasko/.nuget/packages/microsoft.bcl.asyncinterfaces/10.0.10/microsoft.bcl.asyncinterfaces.10.0.10.nupkg.sha512",
+    "/home/arekstasko/.nuget/packages/microsoft.extensions.configuration.abstractions/10.0.10/microsoft.extensions.configuration.abstractions.10.0.10.nupkg.sha512",
     "/home/arekstasko/.nuget/packages/microsoft.extensions.dependencyinjection/8.0.0/microsoft.extensions.dependencyinjection.8.0.0.nupkg.sha512",
-    "/home/arekstasko/.nuget/packages/microsoft.extensions.dependencyinjection.abstractions/8.0.0/microsoft.extensions.dependencyinjection.abstractions.8.0.0.nupkg.sha512"
+    "/home/arekstasko/.nuget/packages/microsoft.extensions.dependencyinjection.abstractions/10.0.10/microsoft.extensions.dependencyinjection.abstractions.10.0.10.nupkg.sha512",
+    "/home/arekstasko/.nuget/packages/microsoft.extensions.diagnostics.abstractions/10.0.10/microsoft.extensions.diagnostics.abstractions.10.0.10.nupkg.sha512",
+    "/home/arekstasko/.nuget/packages/microsoft.extensions.fileproviders.abstractions/10.0.10/microsoft.extensions.fileproviders.abstractions.10.0.10.nupkg.sha512",
+    "/home/arekstasko/.nuget/packages/microsoft.extensions.hosting.abstractions/10.0.10/microsoft.extensions.hosting.abstractions.10.0.10.nupkg.sha512",
+    "/home/arekstasko/.nuget/packages/microsoft.extensions.logging.abstractions/10.0.10/microsoft.extensions.logging.abstractions.10.0.10.nupkg.sha512",
+    "/home/arekstasko/.nuget/packages/microsoft.extensions.options/10.0.10/microsoft.extensions.options.10.0.10.nupkg.sha512",
+    "/home/arekstasko/.nuget/packages/microsoft.extensions.primitives/10.0.10/microsoft.extensions.primitives.10.0.10.nupkg.sha512",
+    "/home/arekstasko/.nuget/packages/microsoft.identity.client/4.90.0/microsoft.identity.client.4.90.0.nupkg.sha512",
+    "/home/arekstasko/.nuget/packages/microsoft.identity.client.extensions.msal/4.90.0/microsoft.identity.client.extensions.msal.4.90.0.nupkg.sha512",
+    "/home/arekstasko/.nuget/packages/microsoft.identitymodel.abstractions/8.14.0/microsoft.identitymodel.abstractions.8.14.0.nupkg.sha512",
+    "/home/arekstasko/.nuget/packages/system.clientmodel/1.16.0/system.clientmodel.1.16.0.nupkg.sha512",
+    "/home/arekstasko/.nuget/packages/system.diagnostics.diagnosticsource/10.0.10/system.diagnostics.diagnosticsource.10.0.10.nupkg.sha512",
+    "/home/arekstasko/.nuget/packages/system.io.pipelines/10.0.10/system.io.pipelines.10.0.10.nupkg.sha512",
+    "/home/arekstasko/.nuget/packages/system.memory.data/10.0.10/system.memory.data.10.0.10.nupkg.sha512",
+    "/home/arekstasko/.nuget/packages/system.net.serversentevents/10.0.10/system.net.serversentevents.10.0.10.nupkg.sha512",
+    "/home/arekstasko/.nuget/packages/system.security.cryptography.protecteddata/4.5.0/system.security.cryptography.protecteddata.4.5.0.nupkg.sha512",
+    "/home/arekstasko/.nuget/packages/system.text.encodings.web/10.0.10/system.text.encodings.web.10.0.10.nupkg.sha512",
+    "/home/arekstasko/.nuget/packages/system.text.json/10.0.10/system.text.json.10.0.10.nupkg.sha512"
   ],
   "logs": []
 }

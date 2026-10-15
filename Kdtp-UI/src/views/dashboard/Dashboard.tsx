@@ -10,9 +10,9 @@ import poop from "../../ds/emoticons/poop.png";
 import { Animations } from "../../ds/animations/animations.ts";
 import { Stripe } from "../../common/stripe/Stripe.tsx";
 import { DsColor } from "../../ds/color.ts";
-import {isMobile} from "../../common/utils.ts";
+import { isMobile } from "../../common/utils.ts";
 import { useNavigate } from "react-router";
-import {useEffect} from "react";
+import { useEffect } from "react";
 
 const decorations = [
   { src: zany, top: "5%", left: "6%", rotate: "-15deg" },
@@ -23,11 +23,11 @@ const decorations = [
 ];
 
 const Dashboard = () => {
-    const navigate = useNavigate();
+  const navigate = useNavigate();
 
-    useEffect(() => {
-        if(isMobile()) navigate("/join")
-    }, []);
+  useEffect(() => {
+    if (isMobile()) navigate("/join");
+  }, []);
 
   return (
     <>

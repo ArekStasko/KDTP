@@ -7,10 +7,10 @@ import avatarImage from "../../../../ds/test-sources/walter-test.jpg";
 import { Chip } from "../../../../ds/components/chip/Chip.tsx";
 import { Pin } from "../../../../ds/components/pin/Pin.tsx";
 import { Panel } from "../../../../ds/components/panel/Panel.tsx";
-import type { PlayerMock } from "./Players.tsx";
+import type { Player } from "../../../../api/models/Player.ts";
 
 export type PlayerPanelProps = {
-  player: PlayerMock;
+  player: Player;
   index: number;
 };
 
@@ -49,7 +49,7 @@ export const PlayerPanel = ({ player, index }: PlayerPanelProps) => {
             borderColor={borderColors[index]}
           />
           <Box sx={styles.status}>
-            <Typography variant="h5">{player.nickname}</Typography>
+            <Typography variant="h5">{player.username}</Typography>
             <Chip color={colors[index]} borderColor={borderColors[index]}>
               GOTOWY DO GRY!
             </Chip>
