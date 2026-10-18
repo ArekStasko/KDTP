@@ -5,9 +5,10 @@ const container = {
   display: "flex",
   flexDirection: "column",
   alignItems: "center",
-  justifyContent: "space-around",
+  justifyContent: "flex-start",
   width: "50%",
   height: "90%",
+  pt: 20,
   m: 1,
 };
 

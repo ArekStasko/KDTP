@@ -44,9 +44,23 @@ const pulseRotate = keyframes`
     }
 `;
 
+const loadingDots = keyframes`
+    0%, 100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 0.3;
+        transform: scale(0.85);
+    }
+`;
+
+
 export const Animations = {
   jiggle: `${jiggle} 4s ease-in-out infinite`,
   marqueeRight: `${marqueeRight} 45s linear infinite`,
   pulseOpacity: `${pulseOpacity} 2s ease-in-out infinite`,
   pulseRotate: `${pulseRotate} 2s ease-in-out infinite`,
+  loadingDots: `${loadingDots} 0.8s ease-in-out infinite`,
 };

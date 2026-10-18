@@ -26,4 +26,13 @@ export enum DsColor {
   GrayBorder = "#D1D5DB",
   InactiveGray = "#9CA3AF",
   PaleGray = "#E5E7EB",
+
+  // Tag Colors — Pastel Backgrounds
+  TagPinkBackground = "#FBBEE2",
+  TagYellowBackground = "#FEFAC0",
+  TagCyanBackground = "#B2F5FE",
+  TagOrangeBackground = "#FBCFBD",
+  TagLimeBackground = "#E4FFC0",
+  TagPurpleBackground = "#E9D6FD",
+
 }

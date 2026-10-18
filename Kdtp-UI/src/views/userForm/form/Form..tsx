@@ -6,8 +6,13 @@ import { ButtonDs } from "../../../ds/components/button/Button.tsx";
 import { Input } from "../../../ds/components/input/Input.tsx";
 import { useState } from "react";
 import { type JoinGame, useJoinPlayerMutation } from "../../../api/RTK/Game.ts";
+import type {Player} from "../../../api/models/Player.ts";
 
-export const Form = () => {
+export type FormProps = {
+  onUserJoin: (player: Player) => void;
+}
+
+export const Form = ({onUserJoin}: FormProps) => {
   const [joinGame, { isLoading }] = useJoinPlayerMutation();
   const [username, setUsername] = useState<string>("");
 
@@ -16,7 +21,7 @@ export const Form = () => {
       Username: username,
     } as JoinGame;
     const player = await joinGame(request).unwrap();
-    console.log(player);
+    onUserJoin(player);
   };
 
   return (
