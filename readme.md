@@ -1,1 +1,1 @@
-New project for learning azure !
+Party game for my friends
