@@ -5,5 +5,6 @@ namespace Kdtp.Services.Services;
 public interface IGameService
 {
     IReadOnlyCollection<Player> GetPlayers();
+    Task CreateSession();
     Task<Player> JoinAsync(string username);
 }

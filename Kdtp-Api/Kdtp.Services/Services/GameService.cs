@@ -18,6 +18,17 @@ public class GameService(IGameState gameState, IRealtimeNotifier realtimeNotifie
         }
     }
 
+    public async Task CreateSession()
+    {
+        lock (gameState.SyncRoot)
+        {
+            gameState.Session = new Session();
+            gameState.Status = GameStatus.InProgress;
+        }
+        
+        await realtimeNotifier.GameStartedAsync(gameState.Session);
+    }
+
     public async Task<Player> JoinAsync(string username)
     {
         if (string.IsNullOrWhiteSpace(username))

@@ -8,5 +8,7 @@ public interface IGameState
 
     GameStatus Status { get; set; }
 
+    public ISession Session { get; set; }
+    
     object SyncRoot { get; }
 }
