@@ -1,0 +1,16 @@
+/home/arekstasko/sources/repos/KDTP/Kdtp-Api/Kdtp.Domain/bin/Debug/net10.0/Kdtp.Domain.deps.json
+/home/arekstasko/sources/repos/KDTP/Kdtp-Api/Kdtp.Domain/bin/Debug/net10.0/Kdtp.Domain.dll
+/home/arekstasko/sources/repos/KDTP/Kdtp-Api/Kdtp.Domain/bin/Debug/net10.0/Kdtp.Domain.pdb
+/home/arekstasko/sources/repos/KDTP/Kdtp-Api/Kdtp.Domain/bin/Debug/net10.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll
+/home/arekstasko/sources/repos/KDTP/Kdtp-Api/Kdtp.Domain/bin/Debug/net10.0/Microsoft.Extensions.DependencyInjection.Abstractions.xml
+/home/arekstasko/sources/repos/KDTP/Kdtp-Api/Kdtp.Domain/obj/Debug/net10.0/Kdtp.Domain.csproj.AssemblyReference.cache
+/home/arekstasko/sources/repos/KDTP/Kdtp-Api/Kdtp.Domain/obj/Debug/net10.0/Kdtp.Domain.GeneratedMSBuildEditorConfig.editorconfig
+/home/arekstasko/sources/repos/KDTP/Kdtp-Api/Kdtp.Domain/obj/Debug/net10.0/Kdtp.Domain.AssemblyInfoInputs.cache
+/home/arekstasko/sources/repos/KDTP/Kdtp-Api/Kdtp.Domain/obj/Debug/net10.0/Kdtp.Domain.AssemblyInfo.cs
+/home/arekstasko/sources/repos/KDTP/Kdtp-Api/Kdtp.Domain/obj/Debug/net10.0/Kdtp.Domain.csproj.CoreCompileInputs.cache
+/home/arekstasko/sources/repos/KDTP/Kdtp-Api/Kdtp.Domain/obj/Debug/net10.0/Kdtp.Domain.sourcelink.json
+/home/arekstasko/sources/repos/KDTP/Kdtp-Api/Kdtp.Domain/obj/Debug/net10.0/Kdtp.Dom.C6B7EB35.Up2Date
+/home/arekstasko/sources/repos/KDTP/Kdtp-Api/Kdtp.Domain/obj/Debug/net10.0/Kdtp.Domain.dll
+/home/arekstasko/sources/repos/KDTP/Kdtp-Api/Kdtp.Domain/obj/Debug/net10.0/refint/Kdtp.Domain.dll
+/home/arekstasko/sources/repos/KDTP/Kdtp-Api/Kdtp.Domain/obj/Debug/net10.0/Kdtp.Domain.pdb
+/home/arekstasko/sources/repos/KDTP/Kdtp-Api/Kdtp.Domain/obj/Debug/net10.0/ref/Kdtp.Domain.dll
