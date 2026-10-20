@@ -20,7 +20,7 @@ steps:
 - script: dotnet restore Kdtp-Api/KDTP.sln
   displayName: 'Restore'
 
-- script: dotnet tool restore --tool-manifest Kdtp-Api/.config/dotnet-tools.json
+- script: dotnet tool restore --tool-manifest Kdtp-Api/dotnet-tools.json
   displayName: 'Restore .NET tools'
 
 - script: dotnet build Kdtp-Api/KDTP.sln --configuration $(buildConfiguration) --no-restore
