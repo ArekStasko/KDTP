@@ -35,19 +35,19 @@ steps:
     targetPath: '$(Build.ArtifactStagingDirectory)/publish'
     artifact: 'kdtp-api'
 
+
 - script: |
     set -euxo pipefail
-    pwd
-    dotnet --info
-    dotnet tool list --tool-manifest Kdtp-Api/dotnet-tools.json
-    ls -la Kdtp-Api/dotnet-tools.json
+    dotnet tool list
     dotnet tool run dotnet-ef --version
+    mkdir -p "$(Build.ArtifactStagingDirectory)/migrations"
     dotnet tool run dotnet-ef migrations bundle \
-      --project Kdtp-Api/Kdtp.Persistance/Kdtp.Persistance.csproj \
-      --startup-project Kdtp-Api/Kdtp.Api/Kdtp.Api.csproj \
+      --project Kdtp.Persistance/Kdtp.Persistance.csproj \
+      --startup-project Kdtp.Api/Kdtp.Api.csproj \
       --configuration $(buildConfiguration) \
       --output "$(Build.ArtifactStagingDirectory)/migrations/efbundle"
   displayName: 'Build EF Core migration bundle'
+  workingDirectory: '$(Build.SourcesDirectory)/Kdtp-Api'
   env:
     ASPNETCORE_ENVIRONMENT: Development
 
