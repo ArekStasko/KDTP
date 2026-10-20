@@ -15,7 +15,7 @@ steps:
   displayName: 'Install .NET SDK'
   inputs:
     packageType: 'sdk'
-    version: '8.x'
+    version: '10.x'
 
 - script: dotnet restore Kdtp-Api/KDTP.sln
   displayName: 'Restore'
@@ -27,7 +27,24 @@ steps:
   displayName: 'Publish'
 
 - task: PublishPipelineArtifact@1
-  displayName: 'Publish artifact'
+  displayName: 'Publish API artifact'
   inputs:
     targetPath: '$(Build.ArtifactStagingDirectory)/publish'
     artifact: 'kdtp-api'
+
+- script: |
+    mkdir -p "$(Build.ArtifactStagingDirectory)/migrations"
+    dotnet tool run dotnet-ef migrations bundle \
+      --project Kdtp-Api/Kdtp.Persistance/Kdtp.Persistance.csproj \
+      --startup-project Kdtp-Api/Kdtp.Api/Kdtp.Api.csproj \
+      --configuration $(buildConfiguration) \
+      --output "$(Build.ArtifactStagingDirectory)/migrations/efbundle"
+  displayName: "Build EF Core migration bundle"
+  env:
+    ASPNETCORE_ENVIRONMENT: Development
+
+- task: PublishPipelineArtifact@1
+  displayName: 'Publish migration artifact'
+  inputs:
+    targetPath: '$(Build.ArtifactStagingDirectory)/migrations'
+    artifact: 'kdtp-migrations'
