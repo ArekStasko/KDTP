@@ -36,13 +36,18 @@ steps:
     artifact: 'kdtp-api'
 
 - script: |
-    mkdir -p "$(Build.ArtifactStagingDirectory)/migrations"
+    set -euxo pipefail
+    pwd
+    dotnet --info
+    dotnet tool list --tool-manifest Kdtp-Api/dotnet-tools.json
+    ls -la Kdtp-Api/dotnet-tools.json
+    dotnet tool run dotnet-ef --version
     dotnet tool run dotnet-ef migrations bundle \
       --project Kdtp-Api/Kdtp.Persistance/Kdtp.Persistance.csproj \
       --startup-project Kdtp-Api/Kdtp.Api/Kdtp.Api.csproj \
       --configuration $(buildConfiguration) \
       --output "$(Build.ArtifactStagingDirectory)/migrations/efbundle"
-  displayName: "Build EF Core migration bundle"
+  displayName: 'Build EF Core migration bundle'
   env:
     ASPNETCORE_ENVIRONMENT: Development
 
