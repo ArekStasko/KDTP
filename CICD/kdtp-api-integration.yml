@@ -38,14 +38,14 @@ steps:
 
 - script: |
     set -euxo pipefail
-    dotnet tool list
-    dotnet tool run dotnet-ef --version
     mkdir -p "$(Build.ArtifactStagingDirectory)/migrations"
     dotnet tool run dotnet-ef migrations bundle \
       --project Kdtp.Persistance/Kdtp.Persistance.csproj \
       --startup-project Kdtp.Api/Kdtp.Api.csproj \
       --configuration $(buildConfiguration) \
-      --output "$(Build.ArtifactStagingDirectory)/migrations/efbundle"
+      --runtime win-x64 \
+      --self-contained \
+      --output "$(Build.ArtifactStagingDirectory)/migrations/efbundle.exe"
   displayName: 'Build EF Core migration bundle'
   workingDirectory: '$(Build.SourcesDirectory)/Kdtp-Api'
   env:
