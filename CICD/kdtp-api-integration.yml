@@ -41,18 +41,13 @@ steps:
     dotnet tool list
     dotnet tool run dotnet-ef --version
 
-    dotnet restore Kdtp.Api/Kdtp.Api.csproj --runtime win-x64
-    dotnet restore Kdtp.Persistance/Kdtp.Persistance.csproj --runtime win-x64
-
     mkdir -p "$(Build.ArtifactStagingDirectory)/migrations"
 
     dotnet tool run dotnet-ef migrations bundle \
       --project Kdtp.Persistance/Kdtp.Persistance.csproj \
       --startup-project Kdtp.Api/Kdtp.Api.csproj \
       --configuration $(buildConfiguration) \
-      --runtime win-x64 \
-      --self-contained \
-      --output "$(Build.ArtifactStagingDirectory)/migrations/efbundle.exe"
+      --output "$(Build.ArtifactStagingDirectory)/migrations/efbundle"
 
   displayName: 'Build EF Core migration bundle'
   workingDirectory: '$(Build.SourcesDirectory)/Kdtp-Api'
