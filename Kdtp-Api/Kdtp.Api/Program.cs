@@ -1,4 +1,5 @@
 using Kdtp.Domain;
+using Kdtp.Persistance;
 using Kdtp.Services;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -16,6 +17,7 @@ builder.Services.AddCors(options =>
     });
 });
 
+builder.Services.AddPersistance(builder.Configuration.GetConnectionString("KdtpDb"));
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();

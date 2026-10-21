@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "WwMENfnK/4A=",
+  "dgSpecHash": "VxpSAPN/FQQ=",
   "success": true,
   "projectFilePath": "/home/arekstasko/sources/repos/KDTP/Kdtp-Api/Kdtp.Services/Kdtp.Services.csproj",
   "expectedPackageFiles": [
@@ -21,13 +21,8 @@
     "/home/arekstasko/.nuget/packages/microsoft.identity.client.extensions.msal/4.90.0/microsoft.identity.client.extensions.msal.4.90.0.nupkg.sha512",
     "/home/arekstasko/.nuget/packages/microsoft.identitymodel.abstractions/8.14.0/microsoft.identitymodel.abstractions.8.14.0.nupkg.sha512",
     "/home/arekstasko/.nuget/packages/system.clientmodel/1.16.0/system.clientmodel.1.16.0.nupkg.sha512",
-    "/home/arekstasko/.nuget/packages/system.diagnostics.diagnosticsource/10.0.10/system.diagnostics.diagnosticsource.10.0.10.nupkg.sha512",
-    "/home/arekstasko/.nuget/packages/system.io.pipelines/10.0.10/system.io.pipelines.10.0.10.nupkg.sha512",
     "/home/arekstasko/.nuget/packages/system.memory.data/10.0.10/system.memory.data.10.0.10.nupkg.sha512",
-    "/home/arekstasko/.nuget/packages/system.net.serversentevents/10.0.10/system.net.serversentevents.10.0.10.nupkg.sha512",
-    "/home/arekstasko/.nuget/packages/system.security.cryptography.protecteddata/4.5.0/system.security.cryptography.protecteddata.4.5.0.nupkg.sha512",
-    "/home/arekstasko/.nuget/packages/system.text.encodings.web/10.0.10/system.text.encodings.web.10.0.10.nupkg.sha512",
-    "/home/arekstasko/.nuget/packages/system.text.json/10.0.10/system.text.json.10.0.10.nupkg.sha512"
+    "/home/arekstasko/.nuget/packages/system.security.cryptography.protecteddata/4.5.0/system.security.cryptography.protecteddata.4.5.0.nupkg.sha512"
   ],
   "logs": []
 }

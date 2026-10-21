@@ -1,5 +1,6 @@
 using Azure.Core;
 using Azure.Messaging.WebPubSub;
+using Kdtp.Domain.Models;
 using Microsoft.Extensions.Configuration;
 
 namespace Kdtp.Services.Realtime;
@@ -45,5 +46,19 @@ public class AzureWebPubSubNotifier : IRealtimeNotifier
             BinaryData.FromObjectAsJson(message),
             ContentType.ApplicationJson
             );
+    }
+
+    public async Task GameStartedAsync(ISession session, CancellationToken cancellationToken = default)
+    {
+        var message = new
+        {
+            type = "GameStarted",
+            session = session.Id
+        };
+
+        await _client.SendToAllAsync(
+            BinaryData.FromObjectAsJson(message),
+            ContentType.ApplicationJson
+        );
     }
 }
