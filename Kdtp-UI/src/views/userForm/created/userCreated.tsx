@@ -8,12 +8,14 @@ import {Chip} from "../../../ds/components/chip/Chip.tsx";
 import {Loading} from "../../../ds/components/loading/Loading.tsx";
 import {Avatar} from "../../../ds/components/avatar/Avatar.tsx";
 import gary from '../../../ds/avatars/gary.png'
+import {useCreateSessionMutation} from "../../../api/RTK/Game.ts";
 
 export type UserCreatedProps = {
     player: Player
 }
 
 export const UserCreated = ({player}: UserCreatedProps) => {
+    const [createSession] = useCreateSessionMutation();
 
     return(
         <Panel
@@ -32,13 +34,13 @@ export const UserCreated = ({player}: UserCreatedProps) => {
                 </Typography>
             </Panel>
             {
-                player.playerRole === "0" ? (
+                player.role == 1 ? (
                     <ButtonDs
                         disabled={false}
                         color={DsColor.Black}
                         backgroundColor={DsColor.LimeGreen}
                         sx={styles.button}
-                        onClick={() => console.log("start")}
+                        onClick={() => createSession()}
                     >
                         <Typography variant="h6">START</Typography>
                     </ButtonDs>

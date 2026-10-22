@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Kdtp.Persistance.repository;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Kdtp.Persistance;
@@ -12,5 +13,6 @@ public static class Extensions
         services.AddDbContext<GameDbContext>(options =>
             options.UseSqlServer(connectionString)
         );
+        services.AddScoped<IGameRepository, GameRepository>();
     }
 }

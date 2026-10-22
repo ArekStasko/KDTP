@@ -14,3 +14,5 @@
 /home/arekstasko/sources/repos/KDTP/Kdtp-Api/Kdtp.Services/obj/Debug/net10.0/refint/Kdtp.Services.dll
 /home/arekstasko/sources/repos/KDTP/Kdtp-Api/Kdtp.Services/obj/Debug/net10.0/Kdtp.Services.pdb
 /home/arekstasko/sources/repos/KDTP/Kdtp-Api/Kdtp.Services/obj/Debug/net10.0/ref/Kdtp.Services.dll
+/home/arekstasko/sources/repos/KDTP/Kdtp-Api/Kdtp.Services/bin/Debug/net10.0/Kdtp.Persistance.dll
+/home/arekstasko/sources/repos/KDTP/Kdtp-Api/Kdtp.Services/bin/Debug/net10.0/Kdtp.Persistance.pdb

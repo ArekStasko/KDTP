@@ -3,6 +3,16 @@ export interface PlayerJoinedEvent {
   player: {
     id: string;
     username: string;
-    role: string;
+    role: number;
   };
 }
+
+export interface SessionStartedEvent {
+  type: "GameStarted";
+  sessionId: string;
+}
+
+export type WebPubSubHandlers = {
+  onPlayerJoined?: (event: PlayerJoinedEvent) => void;
+  onGameStarted?: (event: SessionStartedEvent) => void;
+};

@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Kdtp.Api")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9c25b75c8a454a5edfaf4eedbce6fee88d93a5b8")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0c7384d422c4309b92b9965d220812f691d4e7a9")]
 [assembly: System.Reflection.AssemblyProductAttribute("Kdtp.Api")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Kdtp.Api")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
