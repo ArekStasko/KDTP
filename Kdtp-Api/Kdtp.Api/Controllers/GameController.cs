@@ -28,4 +28,8 @@ public class GameController(IGameService gameService) : ControllerBase
         var player = await gameService.JoinAsync(request.Username);
         return Ok(player);
     }
+    
+    [HttpPost("session")]
+    public async Task CreateSession()
+        => await gameService.CreateSession();
 }
