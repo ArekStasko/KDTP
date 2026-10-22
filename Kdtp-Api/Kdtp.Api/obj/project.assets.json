@@ -1655,6 +1655,7 @@
         "dependencies": {
           "Azure.Messaging.WebPubSub": "1.7.0",
           "Kdtp.Domain": "1.0.0",
+          "Kdtp.Persistance": "1.0.0",
           "Microsoft.Azure.WebPubSub.Common": "1.6.0"
         },
         "compile": {

@@ -1,4 +1,5 @@
 using Kdtp.Domain.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace Kdtp.Persistance.repository;
 
@@ -9,8 +10,8 @@ public class GameRepository(GameDbContext context) : IGameRepository
         try
         {
             var questionsSet = new List<QuestionSet>();
-            var questions = context.Questions;
-            var answers = context.Answers;
+            var questions = await context.Questions.ToListAsync();
+            var answers = await context.Answers.ToListAsync();
             
             foreach (var question in questions)
             {

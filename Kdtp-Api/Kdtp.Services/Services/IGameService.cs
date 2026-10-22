@@ -7,4 +7,6 @@ public interface IGameService
     IReadOnlyCollection<Player> GetPlayers();
     Task CreateSession();
     Task<Player> JoinAsync(string username);
+    
+    Task<List<QuestionSet>> GetQuestionSetsAsync();
 }

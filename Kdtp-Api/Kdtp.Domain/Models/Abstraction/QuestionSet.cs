@@ -4,6 +4,6 @@ namespace Kdtp.Domain.Models;
 
 public class QuestionSet
 {
-    public Question Question;
-    public List<Answer> Answers;
+    public Question Question {get; set;}
+    public List<Answer> Answers {get; set;}
 }
