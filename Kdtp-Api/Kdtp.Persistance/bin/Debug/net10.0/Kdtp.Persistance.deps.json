@@ -952,6 +952,9 @@
         }
       },
       "Kdtp.Domain/1.0.0": {
+        "dependencies": {
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "10.0.13"
+        },
         "runtime": {
           "Kdtp.Domain.dll": {
             "assemblyVersion": "1.0.0.0",

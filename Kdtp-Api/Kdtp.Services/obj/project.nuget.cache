@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "VxpSAPN/FQQ=",
+  "dgSpecHash": "1Zk28461O9A=",
   "success": true,
   "projectFilePath": "/home/arekstasko/sources/repos/KDTP/Kdtp-Api/Kdtp.Services/Kdtp.Services.csproj",
   "expectedPackageFiles": [
@@ -10,7 +10,7 @@
     "/home/arekstasko/.nuget/packages/microsoft.bcl.asyncinterfaces/10.0.10/microsoft.bcl.asyncinterfaces.10.0.10.nupkg.sha512",
     "/home/arekstasko/.nuget/packages/microsoft.extensions.configuration.abstractions/10.0.10/microsoft.extensions.configuration.abstractions.10.0.10.nupkg.sha512",
     "/home/arekstasko/.nuget/packages/microsoft.extensions.dependencyinjection/8.0.0/microsoft.extensions.dependencyinjection.8.0.0.nupkg.sha512",
-    "/home/arekstasko/.nuget/packages/microsoft.extensions.dependencyinjection.abstractions/10.0.10/microsoft.extensions.dependencyinjection.abstractions.10.0.10.nupkg.sha512",
+    "/home/arekstasko/.nuget/packages/microsoft.extensions.dependencyinjection.abstractions/10.0.13/microsoft.extensions.dependencyinjection.abstractions.10.0.13.nupkg.sha512",
     "/home/arekstasko/.nuget/packages/microsoft.extensions.diagnostics.abstractions/10.0.10/microsoft.extensions.diagnostics.abstractions.10.0.10.nupkg.sha512",
     "/home/arekstasko/.nuget/packages/microsoft.extensions.fileproviders.abstractions/10.0.10/microsoft.extensions.fileproviders.abstractions.10.0.10.nupkg.sha512",
     "/home/arekstasko/.nuget/packages/microsoft.extensions.hosting.abstractions/10.0.10/microsoft.extensions.hosting.abstractions.10.0.10.nupkg.sha512",
