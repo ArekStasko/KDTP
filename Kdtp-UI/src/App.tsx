@@ -9,9 +9,13 @@ import { useWebPubSub } from "./api/services/useWebPubSub.ts";
 import { useAppDispatch } from "./api/useAppDispatch.ts";
 import { GameApi } from "./api/RTK/Game.ts";
 import type { Player } from "./api/models/Player.ts";
+import type {SessionStartedEvent} from "./api/services/webPubSubEvents.ts";
+import { useNavigate } from "react-router";
+import {isMobile} from "./common/utils.ts";
 
 export const App = () => {
   const dispatch = useAppDispatch();
+  const navigate = useNavigate();
 
   const handlePlayerJoined = useCallback(
     (event: {
@@ -19,7 +23,7 @@ export const App = () => {
       player: {
         id: string;
         username: string;
-        role: string;
+        role: number;
       };
     }) => {
       dispatch(
@@ -31,7 +35,7 @@ export const App = () => {
           const player = {
             id: event.player.id,
             username: event.player.username,
-            playerRole: event.player.role,
+            role: event.player.role,
             hasSubmittedAnswer: false,
           } as Player;
 
@@ -45,7 +49,18 @@ export const App = () => {
     [dispatch],
   );
 
-  useWebPubSub(handlePlayerJoined);
+    const handleSessionStarted = useCallback((event: SessionStartedEvent) => {
+        if(isMobile()){
+            navigate(`/user/${event.sessionId}`);
+            return;
+        }
+        navigate(`/session/${event.sessionId}`);
+    }, []);
+
+    useWebPubSub({
+        onPlayerJoined: handlePlayerJoined,
+        onGameStarted: handleSessionStarted,
+    });
 
   return (
     <ThemeProvider theme={theme}>
