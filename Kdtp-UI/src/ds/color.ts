@@ -34,5 +34,7 @@ export enum DsColor {
   TagOrangeBackground = "#FBCFBD",
   TagLimeBackground = "#E4FFC0",
   TagPurpleBackground = "#E9D6FD",
+  TagGrayBackground = "#F5F5F5",
+  TagGrayBorder = "#D0D5DB",
 
 }

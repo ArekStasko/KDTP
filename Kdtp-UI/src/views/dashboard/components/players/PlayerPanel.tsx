@@ -7,35 +7,12 @@ import { Chip } from "../../../../ds/components/chip/Chip.tsx";
 import { Pin } from "../../../../ds/components/pin/Pin.tsx";
 import { Panel } from "../../../../ds/components/panel/Panel.tsx";
 import type { Player } from "../../../../api/models/Player.ts";
-import gary from '../../../../ds/avatars/gary.png'
-import helloKitty from '../../../../ds/avatars/hello-kitty.png'
-import krabs from '../../../../ds/avatars/krabs.png'
-import melody from '../../../../ds/avatars/melody.png'
-import patrick from '../../../../ds/avatars/patrick.png'
-import plankton from '../../../../ds/avatars/plankton.png'
-import pusheen from '../../../../ds/avatars/pusheen.png'
-import sandy from '../../../../ds/avatars/sandy.png'
-import spongebob from '../../../../ds/avatars/spongebob.png'
-import squidward from '../../../../ds/avatars/squidward.png'
-
+import {avatars} from "../../../../ds/avatars/avatars.ts";
 
 export type PlayerPanelProps = {
   player: Player;
   index: number;
 };
-
-const avatars = [
-    gary,
-    helloKitty,
-    krabs,
-    melody,
-    patrick,
-    plankton,
-    pusheen,
-    sandy,
-    spongebob,
-    squidward
-]
 
 const tagColors = [
   DsColor.TagPinkBackground,

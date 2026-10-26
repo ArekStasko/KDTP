@@ -18,7 +18,7 @@ const colors = [
 export const Question = ({question}: QuestionProps) => {
     return (
         <Box sx={styles.questionBox}>
-            <Panel backgroundColor={DsColor.White} color={DsColor.Purple}>
+            <Panel sx={styles.questionWrapper} backgroundColor={DsColor.White} color={DsColor.Purple}>
                 <Typography variant="h5">
                     {question.question.text}
                 </Typography>
