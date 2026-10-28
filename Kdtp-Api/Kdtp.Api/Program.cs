@@ -2,19 +2,16 @@ using Kdtp.Domain;
 using Kdtp.Persistance;
 using Kdtp.Services;
 
+const string AllowSpecifiOrigin = "AllowSpecificOrigin";
+
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy("Frontend", policy =>
-    {
-        policy
-            .WithOrigins(
-                "https://kdtp-ui-int-g7abhyf3feewftga.polandcentral-01.azurewebsites.net"
-            )
+    options.AddPolicy(name: AllowSpecifiOrigin, policy =>
+        policy.AllowAnyOrigin()
             .AllowAnyHeader()
-            .AllowAnyMethod();
-    });
+            .AllowAnyMethod());
 });
 
 builder.Services.AddPersistance(builder.Configuration.GetConnectionString("KdtpDb"));
@@ -37,7 +34,7 @@ app.UseHttpsRedirection();
 
 app.UseRouting();
 
-app.UseCors("Frontend");
+app.UseCors(AllowSpecifiOrigin);
 
 app.UseAuthorization();
 
