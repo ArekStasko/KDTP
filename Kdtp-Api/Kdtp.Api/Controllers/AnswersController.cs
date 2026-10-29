@@ -8,7 +8,7 @@ namespace Kdtp.Controllers;
 public class AnswersController : ControllerBase
 {
     [HttpPost("answer")]
-    public async Task<IActionResult> SubmitAnswer(SubmitAnswerRequest request)
+    public async Task SubmitAnswer(SubmitAnswerRequest request)
     {
         
     }

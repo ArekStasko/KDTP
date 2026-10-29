@@ -61,4 +61,14 @@ public class AzureWebPubSubNotifier : IRealtimeNotifier
             ContentType.ApplicationJson
         );
     }
+
+    public Task RoundCompleted()
+    {
+        throw new NotImplementedException();
+    }
+
+    public Task PlayerSubmit()
+    {
+        throw new NotImplementedException();
+    }
 }

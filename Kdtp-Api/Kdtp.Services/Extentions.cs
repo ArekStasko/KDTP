@@ -10,6 +10,7 @@ public static class Extentions
     {
         services.AddSingleton<IRealtimeNotifier, AzureWebPubSubNotifier>();
         services.AddScoped<IGameService, GameService>();
+        services.AddScoped<IAnswerService, AnswerService>();
         services.AddScoped<IWebPubSubConnectionService, AzureWebPubSubConnectionService>();
     }
 }
