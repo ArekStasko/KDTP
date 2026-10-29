@@ -8,7 +8,8 @@ public class AnswerService(IGameState gameState, IRealtimeNotifier realtimeNotif
 {
     public async Task SaveAnswer(Answer answer, Player player)
     {
-        bool roundCompleted = false;
+        bool roundCompleted;
+        List<PlayerScore> playerScores = new List<PlayerScore>();
         lock (gameState.SyncRoot)
         {
             var playerState = gameState.Players.FirstOrDefault(p => p.Id == player.Id);
@@ -19,21 +20,27 @@ public class AnswerService(IGameState gameState, IRealtimeNotifier realtimeNotif
             roundCompleted = gameState.Players.All(p => p.HasSubmittedAnswer);
 
             if (roundCompleted)
-                gameState.Players.ForEach(p => p.HasSubmittedAnswer = false);
-        }
-
-        if (roundCompleted)
-        {
-            await realtimeNotifier.PlayerJoinedAsync(
-                player.Id,
-                player.Username,
-                player.Role.ToString());
-            return;
+            {
+                var correctAnswers = gameState.Players.Count(p => p.LastSubmittedAnswer);
+                var singlePoints = 1000 / correctAnswers;
+                gameState.Players.ForEach(p =>
+                {
+                    playerScores.Add(new PlayerScore()
+                    {
+                        PlayerId = p.Id,
+                        Score = p.LastSubmittedAnswer ? singlePoints : 0
+                    });
+                    p.HasSubmittedAnswer = false;
+                });
+            }
         }
         
-        await realtimeNotifier.PlayerJoinedAsync(
-            player.Id,
-            player.Username,
-            player.Role.ToString());
+        if (roundCompleted)
+        {
+            await realtimeNotifier.RoundCompleted(playerScores);
+            return;
+        }
+
+        await realtimeNotifier.PlayerSubmit(player.Id);
     }
 }

@@ -62,13 +62,31 @@ public class AzureWebPubSubNotifier : IRealtimeNotifier
         );
     }
 
-    public Task RoundCompleted()
+    public async Task RoundCompleted(List<PlayerScore> playerScores, CancellationToken cancellationToken = default)
     {
-        throw new NotImplementedException();
+        var message = new
+        {
+            type = "RoundCompleted",
+            playerScores
+        };
+
+        await _client.SendToAllAsync(
+            BinaryData.FromObjectAsJson(message),
+            ContentType.ApplicationJson
+        );
     }
 
-    public Task PlayerSubmit()
+    public async Task PlayerSubmit(Guid playerId, CancellationToken cancellationToken = default)
     {
-        throw new NotImplementedException();
+        var message = new
+        {
+            type = "PlayerSubmit",
+            playerId
+        };
+
+        await _client.SendToAllAsync(
+            BinaryData.FromObjectAsJson(message),
+            ContentType.ApplicationJson
+            );
     }
 }

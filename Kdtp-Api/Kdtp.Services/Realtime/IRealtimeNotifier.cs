@@ -15,7 +15,9 @@ public interface IRealtimeNotifier
         CancellationToken cancellationToken = default);
 
     Task RoundCompleted(
-        
-        );
-    Task PlayerSubmit();
+        List<PlayerScore> playerScores,
+        CancellationToken cancellationToken = default);
+    Task PlayerSubmit(
+        Guid playerId,
+        CancellationToken cancellationToken = default);
 }
