@@ -1,8 +1,9 @@
+using Kdtp.Domain.Models.Persistance;
+
 namespace savely.Requests;
 
 public record SubmitAnswerRequest
 {
-    public int UserId { get; init; }
-    public int QuestionId { get; init; }
-    public int AnswerId { get; set; }
+    public Guid PlayerId { get; init; }
+    public Answer Answer { get; set; }
 }

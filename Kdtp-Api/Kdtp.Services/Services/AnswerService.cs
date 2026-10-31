@@ -6,14 +6,14 @@ namespace Kdtp.Services.Services;
 
 public class AnswerService(IGameState gameState, IRealtimeNotifier realtimeNotifier) : IAnswerService
 {
-    public async Task SaveAnswer(Answer answer, Player player)
+    public async Task SaveAnswer(Answer answer, Guid playerId)
     {
         bool roundCompleted;
         List<PlayerScore> playerScores = new List<PlayerScore>();
         lock (gameState.SyncRoot)
         {
-            var playerState = gameState.Players.FirstOrDefault(p => p.Id == player.Id);
-            if(playerState == null) throw new NullReferenceException($"Player {player.Id} not found");
+            var playerState = gameState.Players.FirstOrDefault(p => p.Id == playerId);
+            if(playerState == null) throw new NullReferenceException($"Player {playerId} not found");
             playerState.LastSubmittedAnswer = answer.IsCorrect;
             playerState.HasSubmittedAnswer = true;
 

@@ -5,5 +5,5 @@ namespace Kdtp.Services.Services;
 
 public interface IAnswerService
 {
-    public Task SaveAnswer(Answer answer, Player user);
+    public Task SaveAnswer(Answer answer, Guid playerId);
 }

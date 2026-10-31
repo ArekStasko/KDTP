@@ -33,7 +33,6 @@ const borderColors = [
 const QuestionsContext = () => {
     const {data: questionsSet} = useGetQuestionsSetQuery();
     const {data: players} = useGetPlayersQuery();
-    console.log(players)
     const [currentQuestion, setCurrentQuestion] = useState<QuestionSet | null>(null);
 
     useEffect(() => {
