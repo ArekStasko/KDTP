@@ -24,6 +24,7 @@ import claun from "./ds/emoticons/claun.png";
 import expolindHead from "./ds/emoticons/exploding-head.png";
 import laugh from "./ds/emoticons/laugh.png";
 import poop from "./ds/emoticons/poop.png";
+import { useEvent } from "./common/eventContext/eventContext.tsx";
 
 const decorations = [
   { src: zany, top: "5%", left: "6%", rotate: "-15deg" },
@@ -34,6 +35,7 @@ const decorations = [
 ];
 
 export const App = () => {
+  const { setRoundCompleted, setSubmittedPlayers } = useEvent();
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
 
@@ -78,11 +80,11 @@ export const App = () => {
   }, []);
 
   const handleRoundCompleted = useCallback((event: RoundCompletedEvent) => {
-    console.log(event);
+    setRoundCompleted((state) => [...state, ...event.playerScores]);
   }, []);
 
   const handlePlayerSubmit = useCallback((event: PlayerSubmitEvent) => {
-    console.log(event);
+    setSubmittedPlayers((state: string[]) => [...state, event.playerId]);
   }, []);
 
   useWebPubSub({

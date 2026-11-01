@@ -3,7 +3,7 @@ import {
   useGetPlayersQuery,
   useGetQuestionsSetQuery,
 } from "../../api/RTK/Game.ts";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import type { QuestionSet } from "../../api/models/QuestionSet.ts";
 import { Question } from "./Question.tsx";
 import styles from "./styles.ts";
@@ -13,6 +13,7 @@ import { Panel } from "../../ds/components/panel/Panel.tsx";
 import { Avatar } from "../../ds/components/avatar/Avatar.tsx";
 import { avatars } from "../../ds/avatars/avatars.ts";
 import { Pin } from "../../ds/components/pin/Pin.tsx";
+import { useEvent } from "../../common/eventContext/eventContext.tsx";
 
 const colors = [
   DsColor.HotPink,
@@ -33,6 +34,7 @@ const borderColors = [
 ];
 
 const QuestionsContext = () => {
+  const { roundCompleted, submittedPlayers } = useEvent();
   const { data: questionsSet } = useGetQuestionsSetQuery();
   const { data: players } = useGetPlayersQuery();
   const [currentQuestion, setCurrentQuestion] = useState<QuestionSet | null>(
@@ -46,6 +48,36 @@ const QuestionsContext = () => {
     }
   }, [questionsSet]);
 
+  const PlayersState = useMemo(() => {
+
+    return (
+      <>
+        <Typography variant="h6">GLOSOWANIE</Typography>
+        <Box sx={styles.usersCount}>
+          <Typography>{submittedPlayers.length}/6 ZAGLOSOWALO</Typography>
+        </Box>
+        <Box sx={styles.usersChip}>
+          {players?.map((p, index) => (
+            <Chip
+              sx={styles.userChip}
+              color={(submittedPlayers.includes(p.id) || roundCompleted.length !== 0 ) ? DsColor.TagCyanBackground : DsColor.TagGrayBackground}
+              borderColor={(submittedPlayers.includes(p.id) || roundCompleted.length !== 0 ) ? DsColor.LimeGreen : DsColor.TagGrayBorder}
+            >
+              <Avatar
+                src={avatars[index]}
+                color={colors[index]}
+                borderColor={borderColors[index]}
+                sx={styles.avatar}
+              />
+              <Typography>{p.username}</Typography>
+              <Pin color={DsColor.LimeGreen} />
+            </Chip>
+          ))}
+        </Box>
+      </>
+    );
+  }, [players, submittedPlayers, roundCompleted]);
+
   return (
     <Box sx={styles.container}>
       {currentQuestion && (
@@ -57,28 +89,7 @@ const QuestionsContext = () => {
               color={DsColor.LimeGreen}
               backgroundColor={DsColor.White}
             >
-              <Typography variant="h6">GLOSOWANIE</Typography>
-              <Box sx={styles.usersCount}>
-                <Typography>6/6 ZAGLOSOWALO</Typography>
-              </Box>
-              <Box sx={styles.usersChip}>
-                {players?.map((p, index) => (
-                  <Chip
-                    sx={styles.userChip}
-                    color={DsColor.TagGrayBackground}
-                    borderColor={DsColor.TagGrayBorder}
-                  >
-                    <Avatar
-                      src={avatars[index]}
-                      color={colors[index]}
-                      borderColor={borderColors[index]}
-                      sx={styles.avatar}
-                    />
-                    <Typography>{p.username}</Typography>
-                    <Pin color={DsColor.LimeGreen} />
-                  </Chip>
-                ))}
-              </Box>
+              {PlayersState}
             </Panel>
           </Box>
         </Box>
