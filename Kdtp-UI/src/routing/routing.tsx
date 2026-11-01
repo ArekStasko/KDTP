@@ -10,8 +10,8 @@ export const MainRouting = () => {
     <Routes>
       <Route path={RoutingPaths.join} element={<UserForm />} />
       <Route path={RoutingPaths.dashboard} element={<Dashboard />} />
-        <Route path={RoutingPaths.game} element={<QuestionsContext />} />
-        <Route path={RoutingPaths.user} element={<UserAnswersContext />} />
+      <Route path={RoutingPaths.game} element={<QuestionsContext />} />
+      <Route path={RoutingPaths.user} element={<UserAnswersContext />} />
     </Routes>
   );
 };

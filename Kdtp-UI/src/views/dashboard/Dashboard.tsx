@@ -14,12 +14,12 @@ const Dashboard = () => {
   }, []);
 
   return (
-      <Box sx={styles.container}>
-        <Box sx={styles.content}>
-          <Status />
-          <Players />
-        </Box>
+    <Box sx={styles.container}>
+      <Box sx={styles.content}>
+        <Status />
+        <Players />
       </Box>
+    </Box>
   );
 };
 

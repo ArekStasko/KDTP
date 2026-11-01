@@ -7,7 +7,7 @@ import { Chip } from "../../../../ds/components/chip/Chip.tsx";
 import { Pin } from "../../../../ds/components/pin/Pin.tsx";
 import { Panel } from "../../../../ds/components/panel/Panel.tsx";
 import type { Player } from "../../../../api/models/Player.ts";
-import {avatars} from "../../../../ds/avatars/avatars.ts";
+import { avatars } from "../../../../ds/avatars/avatars.ts";
 
 export type PlayerPanelProps = {
   player: Player;

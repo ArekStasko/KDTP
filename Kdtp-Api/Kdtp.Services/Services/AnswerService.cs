@@ -41,6 +41,6 @@ public class AnswerService(IGameState gameState, IRealtimeNotifier realtimeNotif
             return;
         }
 
-        await realtimeNotifier.PlayerSubmit(player.Id);
+        await realtimeNotifier.PlayerSubmit(playerId);
     }
 }

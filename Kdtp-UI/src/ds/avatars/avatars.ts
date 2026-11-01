@@ -10,14 +10,14 @@ import spongebob from "./spongebob.png";
 import squidward from "./squidward.png";
 
 export const avatars = [
-    gary,
-    helloKitty,
-    krabs,
-    melody,
-    patrick,
-    plankton,
-    pusheen,
-    sandy,
-    spongebob,
-    squidward
-]
+  gary,
+  helloKitty,
+  krabs,
+  melody,
+  patrick,
+  plankton,
+  pusheen,
+  sandy,
+  spongebob,
+  squidward,
+];

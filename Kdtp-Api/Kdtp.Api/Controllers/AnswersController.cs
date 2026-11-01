@@ -8,7 +8,7 @@ namespace Kdtp.Controllers;
 [Route("api/[controller]")]
 public class AnswersController(IAnswerService answerService) : ControllerBase
 {
-    [HttpPost("answer")]
+    [HttpPost]
     public async Task SubmitAnswer(SubmitAnswerRequest request)
         => await answerService.SaveAnswer(request.Answer, request.PlayerId);
 }
