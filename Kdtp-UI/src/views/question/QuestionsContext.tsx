@@ -34,7 +34,7 @@ const borderColors = [
 ];
 
 const QuestionsContext = () => {
-  const { roundCompleted, submittedPlayers } = useEvent();
+  const { roundCompleted, submittedPlayers, clearSubmittedPlayers, clearRoundCompleted } = useEvent();
   const { data: questionsSet } = useGetQuestionsSetQuery();
   const { data: players } = useGetPlayersQuery();
   const [currentQuestion, setCurrentQuestion] = useState<QuestionSet | null>(
@@ -48,13 +48,23 @@ const QuestionsContext = () => {
     }
   }, [questionsSet]);
 
+  useEffect(() => {
+    if(!questionsSet || !currentQuestion) return;
+    const currentQuestionIndex = questionsSet.findIndex(q => q.question.id === currentQuestion.question.id);
+    if(currentQuestionIndex == questionsSet.length-1) return;
+    clearSubmittedPlayers();
+    clearRoundCompleted();
+    setCurrentQuestion(questionsSet[currentQuestionIndex+1]);
+  }, [roundCompleted]);
+
   const PlayersState = useMemo(() => {
+    const submittedCount = submittedPlayers.length;
 
     return (
       <>
         <Typography variant="h6">GLOSOWANIE</Typography>
         <Box sx={styles.usersCount}>
-          <Typography>{submittedPlayers.length}/6 ZAGLOSOWALO</Typography>
+          <Typography>{submittedCount}/6 ZAGLOSOWALO</Typography>
         </Box>
         <Box sx={styles.usersChip}>
           {players?.map((p, index) => (

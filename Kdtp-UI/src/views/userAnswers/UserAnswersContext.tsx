@@ -4,8 +4,10 @@ import { useEffect, useState } from "react";
 import type { QuestionSet } from "../../api/models/QuestionSet.ts";
 import { UserAnswers } from "./userAnswers.tsx";
 import styles from "./styles.ts";
+import {useEvent} from "../../common/eventContext/eventContext.tsx";
 
 const UserAnswersContext = () => {
+  const { roundCompleted, clearSubmittedPlayers, clearRoundCompleted } = useEvent();
   const { data: questionsSet } = useGetQuestionsSetQuery();
   const [currentQuestion, setCurrentQuestion] = useState<QuestionSet | null>(
     null,
@@ -17,6 +19,15 @@ const UserAnswersContext = () => {
       setCurrentQuestion(questionSet);
     }
   }, [questionsSet]);
+
+  useEffect(() => {
+    if(!questionsSet || !currentQuestion) return;
+    const currentQuestionIndex = questionsSet.findIndex(q => q.question.id === currentQuestion.question.id);
+    if(currentQuestionIndex == questionsSet.length-1) return;
+    clearSubmittedPlayers();
+    clearRoundCompleted();
+    setCurrentQuestion(questionsSet[currentQuestionIndex+1]);
+  }, [roundCompleted]);
 
   return (
     <Box sx={styles.container}>
