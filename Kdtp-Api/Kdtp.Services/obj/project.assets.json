@@ -833,6 +833,9 @@
       "Kdtp.Domain/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v10.0",
+        "dependencies": {
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "10.0.13"
+        },
         "compile": {
           "bin/placeholder/Kdtp.Domain.dll": {}
         },
