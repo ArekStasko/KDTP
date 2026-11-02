@@ -36,10 +36,15 @@ const borderColors = [
 const QuestionsContext = () => {
   const { roundCompleted, submittedPlayers, clearSubmittedPlayers, clearRoundCompleted } = useEvent();
   const { data: questionsSet } = useGetQuestionsSetQuery();
-  const { data: players } = useGetPlayersQuery();
+  const { data: players, refetch } = useGetPlayersQuery();
+  const [gameCompleted, setGameCompleted] = useState(false);
   const [currentQuestion, setCurrentQuestion] = useState<QuestionSet | null>(
     null,
   );
+
+  useEffect(() => {
+    if(gameCompleted) refetch();
+  }, [gameCompleted]);
 
   useEffect(() => {
     if (questionsSet && questionsSet.length > 0) {
@@ -49,9 +54,13 @@ const QuestionsContext = () => {
   }, [questionsSet]);
 
   useEffect(() => {
-    if(!questionsSet || !currentQuestion) return;
+    if(!questionsSet || !currentQuestion || !players || roundCompleted.length !== players.length) return;
     const currentQuestionIndex = questionsSet.findIndex(q => q.question.id === currentQuestion.question.id);
-    if(currentQuestionIndex == questionsSet.length-1) return;
+    if(currentQuestionIndex == questionsSet.length-1)
+    {
+      setGameCompleted(true);
+      return;
+    }
     clearSubmittedPlayers();
     clearRoundCompleted();
     setCurrentQuestion(questionsSet[currentQuestionIndex+1]);
@@ -90,7 +99,7 @@ const QuestionsContext = () => {
 
   return (
     <Box sx={styles.container}>
-      {currentQuestion && (
+      {(!gameCompleted && currentQuestion) && (
         <Box sx={styles.wrapper}>
           <Question question={currentQuestion} />
           <Box sx={styles.usersBox}>
