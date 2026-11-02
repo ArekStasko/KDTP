@@ -22,7 +22,7 @@ public class AnswerService(IGameState gameState, IRealtimeNotifier realtimeNotif
             if (roundCompleted)
             {
                 var correctAnswers = gameState.Players.Count(p => p.LastSubmittedAnswer);
-                var singlePoints = 1000 / correctAnswers;
+                var singlePoints = correctAnswers == 0 ? 1000 : 1000 / correctAnswers;
                 gameState.Players.ForEach(p =>
                 {
                     playerScores.Add(new PlayerScore()
