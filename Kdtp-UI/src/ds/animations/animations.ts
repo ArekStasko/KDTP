@@ -56,7 +56,6 @@ const loadingDots = keyframes`
     }
 `;
 
-
 export const Animations = {
   jiggle: `${jiggle} 4s ease-in-out infinite`,
   marqueeRight: `${marqueeRight} 45s linear infinite`,

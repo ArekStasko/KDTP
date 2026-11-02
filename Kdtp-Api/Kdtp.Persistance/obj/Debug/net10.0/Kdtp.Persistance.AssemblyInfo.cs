@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Kdtp.Persistance")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0c7384d422c4309b92b9965d220812f691d4e7a9")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9c9f535bc677d6ae4f361d2174f9e1328997fd83")]
 [assembly: System.Reflection.AssemblyProductAttribute("Kdtp.Persistance")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Kdtp.Persistance")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
