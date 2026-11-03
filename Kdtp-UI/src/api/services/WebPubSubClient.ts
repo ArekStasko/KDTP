@@ -3,7 +3,7 @@ import { WebPubSubClient } from "@azure/web-pubsub-client";
 export const webPubSubClient = new WebPubSubClient({
   getClientAccessUrl: async () => {
     const response = await fetch(
-        `${import.meta.env.VITE_API_BASE_URL}webpubsub/negotiate`,
+      `${import.meta.env.VITE_API_BASE_URL}webpubsub/negotiate`,
     );
 
     if (!response.ok) {

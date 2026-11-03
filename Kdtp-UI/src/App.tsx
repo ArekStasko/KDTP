@@ -9,9 +9,35 @@ import { useWebPubSub } from "./api/services/useWebPubSub.ts";
 import { useAppDispatch } from "./api/useAppDispatch.ts";
 import { GameApi } from "./api/RTK/Game.ts";
 import type { Player } from "./api/models/Player.ts";
+import type {
+  PlayerSubmitEvent,
+  RoundCompletedEvent,
+  SessionStartedEvent,
+} from "./api/services/webPubSubEvents.ts";
+import { useNavigate } from "react-router";
+import { isMobile } from "./common/utils.ts";
+import { Stripe } from "./common/stripe/Stripe.tsx";
+import { DsColor } from "./ds/color.ts";
+import { Animations } from "./ds/animations/animations.ts";
+import zany from "./ds/emoticons/zany.png";
+import claun from "./ds/emoticons/claun.png";
+import expolindHead from "./ds/emoticons/exploding-head.png";
+import laugh from "./ds/emoticons/laugh.png";
+import poop from "./ds/emoticons/poop.png";
+import { useEvent } from "./common/eventContext/eventContext.tsx";
+
+const decorations = [
+  { src: zany, top: "5%", left: "6%", rotate: "-15deg" },
+  { src: claun, top: "82%", left: "53%", rotate: "12deg" },
+  { src: expolindHead, top: "4%", right: "6%", rotate: "10deg" },
+  { src: laugh, bottom: "30%", right: "73%", rotate: "-10deg" },
+  { src: poop, bottom: "7%", left: "8%", rotate: "15deg" },
+];
 
 export const App = () => {
+  const { setRoundCompleted, setSubmittedPlayers } = useEvent();
   const dispatch = useAppDispatch();
+  const navigate = useNavigate();
 
   const handlePlayerJoined = useCallback(
     (event: {
@@ -19,7 +45,7 @@ export const App = () => {
       player: {
         id: string;
         username: string;
-        role: string;
+        role: number;
       };
     }) => {
       dispatch(
@@ -31,7 +57,7 @@ export const App = () => {
           const player = {
             id: event.player.id,
             username: event.player.username,
-            playerRole: event.player.role,
+            role: event.player.role,
             hasSubmittedAnswer: false,
           } as Player;
 
@@ -45,13 +71,59 @@ export const App = () => {
     [dispatch],
   );
 
-  useWebPubSub(handlePlayerJoined);
+  const handleSessionStarted = useCallback((event: SessionStartedEvent) => {
+    if (isMobile()) {
+      navigate(`/user/${event.sessionId}`);
+      return;
+    }
+    navigate(`/session/${event.sessionId}`);
+  }, []);
+
+  const handleRoundCompleted = useCallback((event: RoundCompletedEvent) => {
+    setRoundCompleted((state) => [...state, ...event.playerScores]);
+  }, []);
+
+  const handlePlayerSubmit = useCallback((event: PlayerSubmitEvent) => {
+    setSubmittedPlayers((state: string[]) => [...state, event.playerId]);
+  }, []);
+
+  useWebPubSub({
+    onPlayerJoined: handlePlayerJoined,
+    onGameStarted: handleSessionStarted,
+    onRoundCompleted: handleRoundCompleted,
+    onPlayerSubmit: handlePlayerSubmit,
+  });
 
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <Box sx={styles.app}>
+        <Stripe
+          text="KDTP - KTORY DEBIL TO POWIEDZIAL"
+          color={DsColor.ElectricYellow}
+          top
+        />
+        {decorations.map((item, index) => (
+          <Box
+            key={index}
+            component="img"
+            src={item.src}
+            alt=""
+            aria-hidden="true"
+            sx={{
+              position: "absolute",
+              ...item,
+              width: 64,
+              height: "auto",
+              zIndex: 0,
+              pointerEvents: "none",
+              userSelect: "none",
+              animation: Animations.pulseRotate,
+            }}
+          />
+        ))}
         <MainRouting />
+        <Stripe text="GRASZ Z DEBILAMI" color={DsColor.Purple} />
       </Box>
     </ThemeProvider>
   );

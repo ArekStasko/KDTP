@@ -13,4 +13,11 @@ public interface IRealtimeNotifier
     Task GameStartedAsync(
         ISession session,
         CancellationToken cancellationToken = default);
+
+    Task RoundCompleted(
+        List<PlayerScore> playerScores,
+        CancellationToken cancellationToken = default);
+    Task PlayerSubmit(
+        Guid playerId,
+        CancellationToken cancellationToken = default);
 }

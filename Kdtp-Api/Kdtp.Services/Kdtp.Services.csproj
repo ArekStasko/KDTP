@@ -10,11 +10,12 @@
     <ItemGroup>
       <PackageReference Include="Azure.Messaging.WebPubSub" Version="1.7.0" />
       <PackageReference Include="Microsoft.Azure.WebPubSub.Common" Version="1.6.0" />
-      <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="8.0.0" />
+        <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="10.0.13" />
     </ItemGroup>
 
     <ItemGroup>
       <ProjectReference Include="..\Kdtp.Domain\Kdtp.Domain.csproj" />
+      <ProjectReference Include="..\Kdtp.Persistance\Kdtp.Persistance.csproj" />
     </ItemGroup>
 
 </Project>

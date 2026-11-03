@@ -1,6 +1,6 @@
 export type Player = {
   id: string;
   username: string;
-  playerRole: string;
+  role: number;
   hasSubmittedAnswer: boolean;
 };

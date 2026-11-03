@@ -544,6 +544,12 @@
       "frameworks": {
         "net10.0": {
           "targetAlias": "net10.0",
+          "dependencies": {
+            "Microsoft.Extensions.DependencyInjection.Abstractions": {
+              "target": "Package",
+              "version": "[10.0.13, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -1217,6 +1223,9 @@
             "projectReferences": {
               "/home/arekstasko/sources/repos/KDTP/Kdtp-Api/Kdtp.Domain/Kdtp.Domain.csproj": {
                 "projectPath": "/home/arekstasko/sources/repos/KDTP/Kdtp-Api/Kdtp.Domain/Kdtp.Domain.csproj"
+              },
+              "/home/arekstasko/sources/repos/KDTP/Kdtp-Api/Kdtp.Persistance/Kdtp.Persistance.csproj": {
+                "projectPath": "/home/arekstasko/sources/repos/KDTP/Kdtp-Api/Kdtp.Persistance/Kdtp.Persistance.csproj"
               }
             }
           }
@@ -1247,7 +1256,7 @@
             },
             "Microsoft.Extensions.DependencyInjection": {
               "target": "Package",
-              "version": "[8.0.0, )"
+              "version": "[10.0.13, )"
             }
           },
           "imports": [

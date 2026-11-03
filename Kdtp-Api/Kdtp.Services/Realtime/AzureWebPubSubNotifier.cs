@@ -61,4 +61,32 @@ public class AzureWebPubSubNotifier : IRealtimeNotifier
             ContentType.ApplicationJson
         );
     }
+
+    public async Task RoundCompleted(List<PlayerScore> playerScores, CancellationToken cancellationToken = default)
+    {
+        var message = new
+        {
+            type = "RoundCompleted",
+            playerScores
+        };
+
+        await _client.SendToAllAsync(
+            BinaryData.FromObjectAsJson(message),
+            ContentType.ApplicationJson
+        );
+    }
+
+    public async Task PlayerSubmit(Guid playerId, CancellationToken cancellationToken = default)
+    {
+        var message = new
+        {
+            type = "PlayerSubmit",
+            playerId
+        };
+
+        await _client.SendToAllAsync(
+            BinaryData.FromObjectAsJson(message),
+            ContentType.ApplicationJson
+            );
+    }
 }
