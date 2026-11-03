@@ -1,10 +1,11 @@
 using Kdtp.Domain.Enums;
 using Kdtp.Domain.Models;
+using Kdtp.Persistance.repository;
 using Kdtp.Services.Realtime;
 
 namespace Kdtp.Services.Services;
 
-public class GameService(IGameState gameState, IRealtimeNotifier realtimeNotifier) : IGameService
+public class GameService(IGameState gameState, IRealtimeNotifier realtimeNotifier, IGameRepository repository) : IGameService
 {
     private readonly object _lock = new();
     
@@ -16,6 +17,17 @@ public class GameService(IGameState gameState, IRealtimeNotifier realtimeNotifie
                 .Select(ClonePlayer)
                 .ToArray();
         }
+    }
+
+    public async Task CreateSession()
+    {
+        lock (gameState.SyncRoot)
+        {
+            gameState.Session = new Session();
+            gameState.Status = GameStatus.InProgress;
+        }
+        
+        await realtimeNotifier.GameStartedAsync(gameState.Session);
     }
 
     public async Task<Player> JoinAsync(string username)
@@ -66,7 +78,10 @@ public class GameService(IGameState gameState, IRealtimeNotifier realtimeNotifie
 
         return ClonePlayer(player);
     }
-    
+
+    public async Task<List<QuestionSet>> GetQuestionSetsAsync()
+        => await repository.GetQuestionsSetAsync();
+
     private static Player ClonePlayer(Player player) => new()
     {
         Id = player.Id,

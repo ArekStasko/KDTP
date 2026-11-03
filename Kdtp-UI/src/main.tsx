@@ -4,6 +4,7 @@ import "./index.css";
 import { BrowserRouter } from "react-router";
 import { Provider } from "react-redux";
 import { store } from "./api/Store.ts";
+import { EventProvider } from "./common/eventContext/eventContext.tsx";
 
 const container = document.getElementById("root");
 
@@ -13,7 +14,9 @@ if (container) {
   root.render(
     <Provider store={store}>
       <BrowserRouter>
-        <App />
+        <EventProvider>
+          <App />
+        </EventProvider>
       </BrowserRouter>
     </Provider>,
   );

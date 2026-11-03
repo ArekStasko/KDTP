@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kdtp.Services", "Kdtp.Servi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kdtp.Domain", "Kdtp.Domain\Kdtp.Domain.csproj", "{D5892BA3-AFEA-4C18-BFF8-154CE3670507}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kdtp.Persistance", "Kdtp.Persistance\Kdtp.Persistance.csproj", "{1556DD81-7986-4AB1-A163-A979DFF2F406}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -29,5 +31,9 @@ Global
 		{D5892BA3-AFEA-4C18-BFF8-154CE3670507}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D5892BA3-AFEA-4C18-BFF8-154CE3670507}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D5892BA3-AFEA-4C18-BFF8-154CE3670507}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1556DD81-7986-4AB1-A163-A979DFF2F406}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1556DD81-7986-4AB1-A163-A979DFF2F406}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1556DD81-7986-4AB1-A163-A979DFF2F406}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1556DD81-7986-4AB1-A163-A979DFF2F406}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "qj7YnHQcOao=",
+  "dgSpecHash": "a0JXUY1RVw4=",
   "success": true,
   "projectFilePath": "/home/arekstasko/sources/repos/KDTP/Kdtp-Api/Kdtp.Domain/Kdtp.Domain.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "/home/arekstasko/.nuget/packages/microsoft.extensions.dependencyinjection.abstractions/10.0.13/microsoft.extensions.dependencyinjection.abstractions.10.0.13.nupkg.sha512"
+  ],
   "logs": []
 }
