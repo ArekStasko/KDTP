@@ -14,6 +14,7 @@ import { Avatar } from "../../ds/components/avatar/Avatar.tsx";
 import { avatars } from "../../ds/avatars/avatars.ts";
 import { Pin } from "../../ds/components/pin/Pin.tsx";
 import { useEvent } from "../../common/eventContext/eventContext.tsx";
+import {LoadingScreen} from "../../common/loadingScreen/LoadingScreen.tsx";
 
 const colors = [
   DsColor.HotPink,
@@ -35,7 +36,7 @@ const borderColors = [
 
 const QuestionsContext = () => {
   const { roundCompleted, submittedPlayers, clearSubmittedPlayers, clearRoundCompleted } = useEvent();
-  const { data: questionsSet } = useGetQuestionsSetQuery();
+  const { data: questionsSet, isLoading } = useGetQuestionsSetQuery();
   const { data: players, refetch } = useGetPlayersQuery();
   const [gameCompleted, setGameCompleted] = useState(false);
   const [currentQuestion, setCurrentQuestion] = useState<QuestionSet | null>(
@@ -99,7 +100,10 @@ const QuestionsContext = () => {
 
   return (
     <Box sx={styles.container}>
-      {(!gameCompleted && currentQuestion) && (
+      {
+        <LoadingScreen isLoading={isLoading} />
+      }
+      {(!gameCompleted && currentQuestion && !isLoading) && (
         <Box sx={styles.wrapper}>
           <Question question={currentQuestion} />
           <Box sx={styles.usersBox}>

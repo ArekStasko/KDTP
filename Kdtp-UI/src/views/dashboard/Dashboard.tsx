@@ -5,8 +5,10 @@ import styles from "./styles.ts";
 import { isMobile } from "../../common/utils.ts";
 import { useNavigate } from "react-router";
 import { useEffect } from "react";
+import {useGetPlayersQuery} from "../../api/RTK/Game.ts";
 
 const Dashboard = () => {
+  const { data: players, isLoading, isError } = useGetPlayersQuery();
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -16,8 +18,14 @@ const Dashboard = () => {
   return (
     <Box sx={styles.container}>
       <Box sx={styles.content}>
-        <Status />
-        <Players />
+        {
+          (!isLoading && !isError && players) && (
+              <>
+                  <Status players={players} />
+              <Players players={players} />
+              </>
+          )
+        }
       </Box>
     </Box>
   );
