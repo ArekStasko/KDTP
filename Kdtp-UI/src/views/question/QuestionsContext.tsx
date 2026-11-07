@@ -15,6 +15,7 @@ import { avatars } from "../../ds/avatars/avatars.ts";
 import { Pin } from "../../ds/components/pin/Pin.tsx";
 import { useEvent } from "../../common/eventContext/eventContext.tsx";
 import {LoadingScreen} from "../../common/loadingScreen/LoadingScreen.tsx";
+import Results from "../results/Results.tsx";
 
 const colors = [
   DsColor.HotPink,
@@ -117,6 +118,9 @@ const QuestionsContext = () => {
           </Box>
         </Box>
       )}
+      {
+        gameCompleted && <Results />
+      }
     </Box>
   );
 };
