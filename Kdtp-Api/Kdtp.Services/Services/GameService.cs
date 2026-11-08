@@ -87,6 +87,7 @@ public class GameService(IGameState gameState, IRealtimeNotifier realtimeNotifie
         Id = player.Id,
         Username = player.Username,
         Role = player.Role,
-        HasSubmittedAnswer = player.HasSubmittedAnswer
+        HasSubmittedAnswer = player.HasSubmittedAnswer,
+        Score = player.Score
     };
 }
