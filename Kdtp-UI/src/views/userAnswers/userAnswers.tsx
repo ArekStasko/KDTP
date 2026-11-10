@@ -9,6 +9,8 @@ import {
   type SubmitAnswer,
   useSubmitAnswerMutation,
 } from "../../api/RTK/Game.ts";
+import {useState} from "react";
+import {Submitted} from "./submitted/Submitted.tsx";
 
 export type UserAnswersProps = {
   questionSet: QuestionSet;
@@ -33,7 +35,8 @@ const colors = [
 ];
 
 export const UserAnswers = ({ questionSet }: UserAnswersProps) => {
-  const [submitAnswer] = useSubmitAnswerMutation();
+  const [submitAnswer] = useSubmitAnswerMutation()
+  const [submitted, setSubmitted] = useState<boolean>();
 
   const onSubmitAnswer = async (answer: Answer) => {
     const playerId = getPlayerId();
@@ -42,11 +45,17 @@ export const UserAnswers = ({ questionSet }: UserAnswersProps) => {
       Answer: answer,
     } as SubmitAnswer;
     await submitAnswer(request);
+    setSubmitted(true);
   };
 
   return (
     <Box sx={styles.answersBox}>
-      {questionSet.answers.map((answer, index) => (
+      {
+        submitted && (
+            <Submitted />
+          )
+      }
+      {!submitted && questionSet.answers.map((answer, index) => (
         <ButtonDs
           sx={{ color: DsColor.Black }}
           disabled={false}
