@@ -1,19 +1,16 @@
-import { Box, Typography } from "@mui/material";
-import {
-  useGetPlayersQuery,
-  useGetQuestionsSetQuery,
-} from "../../api/RTK/Game.ts";
-import { useEffect, useMemo, useState } from "react";
-import type { QuestionSet } from "../../api/models/QuestionSet.ts";
-import { Question } from "./Question.tsx";
+import {Box, Typography} from "@mui/material";
+import {useGetPlayersQuery, useGetQuestionsSetQuery,} from "../../api/RTK/Game.ts";
+import {useEffect, useMemo, useState} from "react";
+import type {QuestionSet} from "../../api/models/QuestionSet.ts";
+import {Question} from "./Question.tsx";
 import styles from "./styles.ts";
-import { DsColor } from "../../ds/color.ts";
-import { Chip } from "../../ds/components/chip/Chip.tsx";
-import { Panel } from "../../ds/components/panel/Panel.tsx";
-import { Avatar } from "../../ds/components/avatar/Avatar.tsx";
-import { avatars } from "../../ds/avatars/avatars.ts";
-import { Pin } from "../../ds/components/pin/Pin.tsx";
-import { useEvent } from "../../common/eventContext/eventContext.tsx";
+import {DsColor} from "../../ds/color.ts";
+import {Chip} from "../../ds/components/chip/Chip.tsx";
+import {Panel} from "../../ds/components/panel/Panel.tsx";
+import {Avatar} from "../../ds/components/avatar/Avatar.tsx";
+import {avatars} from "../../ds/avatars/avatars.ts";
+import {Pin} from "../../ds/components/pin/Pin.tsx";
+import {useEvent} from "../../common/eventContext/eventContext.tsx";
 import {LoadingScreen} from "../../common/loadingScreen/LoadingScreen.tsx";
 import Results from "../results/Results.tsx";
 
@@ -40,6 +37,7 @@ const QuestionsContext = () => {
   const { data: questionsSet, isLoading } = useGetQuestionsSetQuery();
   const { data: players, refetch } = useGetPlayersQuery();
   const [gameCompleted, setGameCompleted] = useState(false);
+  const [displayScore, setDisplayScore] = useState(false);
   const [currentQuestion, setCurrentQuestion] = useState<QuestionSet | null>(
     null,
   );
@@ -60,12 +58,16 @@ const QuestionsContext = () => {
     const currentQuestionIndex = questionsSet.findIndex(q => q.question.id === currentQuestion.question.id);
     if(currentQuestionIndex == questionsSet.length-1)
     {
+      setDisplayScore(true);
       setGameCompleted(true);
       return;
     }
-    clearSubmittedPlayers();
-    clearRoundCompleted();
-    setCurrentQuestion(questionsSet[currentQuestionIndex+1]);
+    setTimeout(() => {
+      clearSubmittedPlayers();
+      clearRoundCompleted();
+      setDisplayScore(false);
+      setCurrentQuestion(questionsSet[currentQuestionIndex+1]);
+    }, 5000);
   }, [roundCompleted]);
 
   const PlayersState = useMemo(() => {
@@ -91,7 +93,16 @@ const QuestionsContext = () => {
                 sx={styles.avatar}
               />
               <Typography>{p.username}</Typography>
-              <Pin color={DsColor.LimeGreen} />
+              <Pin color={(submittedPlayers.includes(p.id) || roundCompleted.length !== 0 ) ? DsColor.LimeGreen : DsColor.TagGrayBorder} />
+              {
+                  displayScore && roundCompleted && roundCompleted.length === players.length && (
+                      <Chip color={DsColor.White} borderColor={DsColor.LimeGreen}>
+                        <Typography>
+                          {roundCompleted.find(s => s.PlayerId === p.id)?.Score}
+                        </Typography>
+                      </Chip>
+                  )
+              }
             </Chip>
           ))}
         </Box>

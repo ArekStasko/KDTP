@@ -9,7 +9,7 @@ import {
   type SubmitAnswer,
   useSubmitAnswerMutation,
 } from "../../api/RTK/Game.ts";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import {Submitted} from "./submitted/Submitted.tsx";
 
 export type UserAnswersProps = {
@@ -37,6 +37,8 @@ const colors = [
 export const UserAnswers = ({ questionSet }: UserAnswersProps) => {
   const [submitAnswer] = useSubmitAnswerMutation()
   const [submitted, setSubmitted] = useState<boolean>();
+
+  useEffect(() => setSubmitted(false), [questionSet])
 
   const onSubmitAnswer = async (answer: Answer) => {
     const playerId = getPlayerId();

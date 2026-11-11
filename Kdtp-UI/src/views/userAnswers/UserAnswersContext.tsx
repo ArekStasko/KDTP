@@ -35,9 +35,11 @@ const UserAnswersContext = () => {
       setGameCompleted(true);
       return;
     }
-    clearSubmittedPlayers();
-    clearRoundCompleted();
-    setCurrentQuestion(questionsSet[currentQuestionIndex+1]);
+    setTimeout(() => {
+      clearSubmittedPlayers();
+      clearRoundCompleted();
+      setCurrentQuestion(questionsSet[currentQuestionIndex+1]);
+    }, 5000);
   }, [roundCompleted]);
 
   return (
