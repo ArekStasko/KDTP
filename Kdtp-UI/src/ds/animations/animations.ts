@@ -102,6 +102,65 @@ const logoPulseRotate = keyframes`
   }
 `;
 
+const scorePopUp = keyframes`
+  0% {
+    opacity: 0;
+    transform: translateY(45px) scale(0.8);
+  }
+
+  60% {
+    opacity: 1;
+    transform: translateY(-8px) scale(1.04);
+  }
+
+  80% {
+    transform: translateY(3px) scale(0.98);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+`;
+
+const cartoonSlideIn = keyframes`
+  0% {
+    opacity: 0;
+    transform: translateX(-180px) scale(0.85) rotate(-5deg);
+  }
+
+  60% {
+    opacity: 1;
+    transform: translateX(18px) scale(1.04) rotate(2deg);
+  }
+
+  80% {
+    transform: translateX(-7px) scale(0.98) rotate(-1deg);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0) scale(1) rotate(0deg);
+  }
+`;
+
+const cartoonSlideOut = keyframes`
+  0% {
+    opacity: 1;
+    transform: translateX(0) scale(1) rotate(0deg);
+  }
+
+  25% {
+    opacity: 1;
+    transform: translateX(15px) scale(1.03) rotate(2deg);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateX(-180px) scale(0.85) rotate(-5deg);
+  }
+`;
+
 export const Animations = {
   jiggle: `${jiggle} 4s ease-in-out infinite`,
   marqueeRight: `${marqueeRight} 45s linear infinite`,
@@ -111,4 +170,7 @@ export const Animations = {
   blobFloat: `${blobFloat} 12s ease-in-out infinite`,
   blobMorph: `${blobMorph} 16s ease-in-out infinite`,
   logoPulseRotate: `${logoPulseRotate} 3s ease-in-out infinite`,
+  scorePopUp: `${scorePopUp} 0.6s both`,
+  cartoonSlideIn: `${cartoonSlideIn} 0.7s both`,
+  cartoonSlideOut: `${cartoonSlideOut} 0.5s both`,
 };

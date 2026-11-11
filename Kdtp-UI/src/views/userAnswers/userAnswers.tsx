@@ -11,6 +11,7 @@ import {
 } from "../../api/RTK/Game.ts";
 import {useEffect, useState} from "react";
 import {Submitted} from "./submitted/Submitted.tsx";
+import {Animations} from "../../ds/animations/animations.ts";
 
 export type UserAnswersProps = {
   questionSet: QuestionSet;
@@ -47,7 +48,9 @@ export const UserAnswers = ({ questionSet }: UserAnswersProps) => {
       Answer: answer,
     } as SubmitAnswer;
     await submitAnswer(request);
-    setSubmitted(true);
+    setTimeout(() => {
+      setSubmitted(true);
+    }, 1000)
   };
 
   return (
@@ -59,7 +62,12 @@ export const UserAnswers = ({ questionSet }: UserAnswersProps) => {
       }
       {!submitted && questionSet.answers.map((answer, index) => (
         <ButtonDs
-          sx={{ color: DsColor.Black }}
+            key={answer.id}
+          sx={{
+            color: DsColor.Black,
+            animation: submitted ? Animations.cartoonSlideOut : Animations.cartoonSlideIn,
+            animationDelay: `${0.15 + index * 0.12}s`,
+        }}
           disabled={false}
           color={colors[index]}
           backgroundColor={backgroundColors[index]}

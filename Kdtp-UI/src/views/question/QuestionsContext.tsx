@@ -58,10 +58,10 @@ const QuestionsContext = () => {
     const currentQuestionIndex = questionsSet.findIndex(q => q.question.id === currentQuestion.question.id);
     if(currentQuestionIndex == questionsSet.length-1)
     {
-      setDisplayScore(true);
       setGameCompleted(true);
       return;
     }
+    setDisplayScore(true);
     setTimeout(() => {
       clearSubmittedPlayers();
       clearRoundCompleted();
@@ -77,7 +77,7 @@ const QuestionsContext = () => {
       <>
         <Typography variant="h6">GLOSOWANIE</Typography>
         <Box sx={styles.usersCount}>
-          <Typography>{submittedCount}/6 ZAGLOSOWALO</Typography>
+          <Typography>{submittedCount}/{players?.length} ZAGLOSOWALO</Typography>
         </Box>
         <Box sx={styles.usersChip}>
           {players?.map((p, index) => (
@@ -95,9 +95,10 @@ const QuestionsContext = () => {
               <Typography>{p.username}</Typography>
               <Pin color={(submittedPlayers.includes(p.id) || roundCompleted.length !== 0 ) ? DsColor.LimeGreen : DsColor.TagGrayBorder} />
               {
-                  displayScore && roundCompleted && roundCompleted.length === players.length && (
-                      <Chip color={DsColor.White} borderColor={DsColor.LimeGreen}>
+                  displayScore && roundCompleted && (
+                      <Chip sx={styles.score} color={DsColor.LimeGreen} borderColor={DsColor.Black}>
                         <Typography>
+                          +
                           {roundCompleted.find(s => s.PlayerId === p.id)?.Score}
                         </Typography>
                       </Chip>
@@ -108,7 +109,7 @@ const QuestionsContext = () => {
         </Box>
       </>
     );
-  }, [players, submittedPlayers, roundCompleted]);
+  }, [players, submittedPlayers, roundCompleted, displayScore]);
 
   return (
     <Box sx={styles.container}>
@@ -117,7 +118,7 @@ const QuestionsContext = () => {
       }
       {(!gameCompleted && currentQuestion && !isLoading) && (
         <Box sx={styles.wrapper}>
-          <Question question={currentQuestion} />
+          <Question question={currentQuestion} displayScore={displayScore} />
           <Box sx={styles.usersBox}>
             <Panel
               sx={styles.usersPanel}

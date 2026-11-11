@@ -6,6 +6,7 @@ import { DsColor } from "../../ds/color.ts";
 
 export type QuestionProps = {
   question: QuestionSet;
+  displayScore: boolean
 };
 
 const colors = [
@@ -15,7 +16,7 @@ const colors = [
   DsColor.Orange,
 ];
 
-export const Question = ({ question }: QuestionProps) => {
+export const Question = ({ question, displayScore }: QuestionProps) => {
   return (
     <Box sx={styles.questionBox}>
       <Panel
@@ -28,7 +29,8 @@ export const Question = ({ question }: QuestionProps) => {
       <Box sx={styles.answersBox}>
         {question.answers.map((answer, i) => (
           <Panel
-            sx={styles.answer}
+              key={answer.id}
+            sx={styles.answer(i, displayScore)}
             backgroundColor={DsColor.White}
             color={colors[i]}
           >
