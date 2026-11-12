@@ -5,11 +5,12 @@ import type { QuestionSet } from "../../api/models/QuestionSet.ts";
 import { UserAnswers } from "./userAnswers.tsx";
 import styles from "./styles.ts";
 import {useEvent} from "../../common/eventContext/eventContext.tsx";
+import {LoadingScreen} from "../../common/loadingScreen/LoadingScreen.tsx";
 
 const UserAnswersContext = () => {
   const { roundCompleted, clearSubmittedPlayers, clearRoundCompleted } = useEvent();
   const { data: players, refetch } = useGetPlayersQuery();
-  const { data: questionsSet } = useGetQuestionsSetQuery();
+  const { data: questionsSet, isLoading } = useGetQuestionsSetQuery();
   const [gameCompleted, setGameCompleted] = useState(false);
   const [currentQuestion, setCurrentQuestion] = useState<QuestionSet | null>(
     null,
@@ -34,14 +35,19 @@ const UserAnswersContext = () => {
       setGameCompleted(true);
       return;
     }
-    clearSubmittedPlayers();
-    clearRoundCompleted();
-    setCurrentQuestion(questionsSet[currentQuestionIndex+1]);
+    setTimeout(() => {
+      clearSubmittedPlayers();
+      clearRoundCompleted();
+      setCurrentQuestion(questionsSet[currentQuestionIndex+1]);
+    }, 5000);
   }, [roundCompleted]);
 
   return (
     <Box sx={styles.container}>
-      {(!gameCompleted && currentQuestion) && <UserAnswers questionSet={currentQuestion} />}
+      {
+        <LoadingScreen isLoading={isLoading} />
+      }
+      {(!gameCompleted && currentQuestion && !isLoading) && <UserAnswers questionSet={currentQuestion} />}
     </Box>
   );
 };

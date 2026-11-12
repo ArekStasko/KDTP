@@ -95,36 +95,49 @@ export const App = () => {
   });
 
   return (
-    <ThemeProvider theme={theme}>
-      <CssBaseline />
-      <Box sx={styles.app}>
-        <Stripe
-          text="KDTP - KTORY DEBIL TO POWIEDZIAL"
-          color={DsColor.ElectricYellow}
-          top
-        />
-        {decorations.map((item, index) => (
-          <Box
-            key={index}
-            component="img"
-            src={item.src}
-            alt=""
-            aria-hidden="true"
-            sx={{
-              position: "absolute",
-              ...item,
-              width: 64,
-              height: "auto",
-              zIndex: 0,
-              pointerEvents: "none",
-              userSelect: "none",
-              animation: Animations.pulseRotate,
-            }}
+      <ThemeProvider theme={theme}>
+        <CssBaseline />
+
+        <Box sx={styles.app}>
+          {decorations.map((item, index) => (
+              <Box
+                  key={index}
+                  component="img"
+                  src={item.src}
+                  alt=""
+                  aria-hidden="true"
+                  sx={{
+                    position: "absolute",
+                    ...item,
+                    width: 64,
+                    height: "auto",
+                    zIndex: 0,
+                    pointerEvents: "none",
+                    userSelect: "none",
+                    animation: Animations.pulseRotate,
+                  }}
+              />
+          ))}
+
+          <Box sx={styles.blobTopLeft} />
+          <Box sx={styles.blobTopRight} />
+          <Box sx={styles.blobBottomLeft} />
+          <Box sx={styles.blobBottomRight} />
+          <Stripe
+              text="KDTP - KTORY DEBIL TO POWIEDZIAL"
+              color={DsColor.ElectricYellow}
+              top
           />
-        ))}
-        <MainRouting />
-        <Stripe text="GRASZ Z DEBILAMI" color={DsColor.Purple} />
-      </Box>
-    </ThemeProvider>
+          <Box sx={styles.content}>
+
+            <MainRouting />
+
+          </Box>
+          <Stripe
+              text="GRASZ Z DEBILAMI"
+              color={DsColor.Purple}
+          />
+        </Box>
+      </ThemeProvider>
   );
 };

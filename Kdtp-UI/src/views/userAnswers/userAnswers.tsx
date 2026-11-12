@@ -9,6 +9,9 @@ import {
   type SubmitAnswer,
   useSubmitAnswerMutation,
 } from "../../api/RTK/Game.ts";
+import {useEffect, useState} from "react";
+import {Submitted} from "./submitted/Submitted.tsx";
+import {Animations} from "../../ds/animations/animations.ts";
 
 export type UserAnswersProps = {
   questionSet: QuestionSet;
@@ -33,7 +36,10 @@ const colors = [
 ];
 
 export const UserAnswers = ({ questionSet }: UserAnswersProps) => {
-  const [submitAnswer] = useSubmitAnswerMutation();
+  const [submitAnswer] = useSubmitAnswerMutation()
+  const [submitted, setSubmitted] = useState<boolean>();
+
+  useEffect(() => setSubmitted(false), [questionSet])
 
   const onSubmitAnswer = async (answer: Answer) => {
     const playerId = getPlayerId();
@@ -42,13 +48,26 @@ export const UserAnswers = ({ questionSet }: UserAnswersProps) => {
       Answer: answer,
     } as SubmitAnswer;
     await submitAnswer(request);
+    setTimeout(() => {
+      setSubmitted(true);
+    }, 1000)
   };
 
   return (
     <Box sx={styles.answersBox}>
-      {questionSet.answers.map((answer, index) => (
+      {
+        submitted && (
+            <Submitted />
+          )
+      }
+      {!submitted && questionSet.answers.map((answer, index) => (
         <ButtonDs
-          sx={{ color: DsColor.Black }}
+            key={answer.id}
+          sx={{
+            color: DsColor.Black,
+            animation: submitted ? Animations.cartoonSlideOut : Animations.cartoonSlideIn,
+            animationDelay: `${0.15 + index * 0.12}s`,
+        }}
           disabled={false}
           color={colors[index]}
           backgroundColor={backgroundColors[index]}

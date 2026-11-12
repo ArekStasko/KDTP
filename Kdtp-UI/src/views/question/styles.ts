@@ -1,3 +1,5 @@
+import {Animations} from "../../ds/animations/animations.ts";
+
 const container = {
   width: "100%",
   height: "100%",
@@ -28,22 +30,31 @@ const questionWrapper = {
   display: "flex",
   alignItems: "center",
   justifyContent: "center",
+
+  animation: Animations.cartoonSlideIn,
+  animationDelay: "0.75s",
 };
 
 const answersBox = {
   display: "flex",
 };
 
-const answer = {
+const answer = (index: number, displayScore: boolean)=> ({
   width: "90%",
   p: 5,
   m: 1,
-};
+
+  animation: displayScore ? Animations.cartoonSlideOut : Animations.cartoonSlideIn,
+  animationDelay: `${0.15 + index * 0.12}s`,
+});
 
 const usersBox = {
   width: "25%",
   height: "100%",
   pt: 3,
+
+  animation: Animations.cartoonSlideIn,
+  animationDelay: "0.75s",
 };
 
 const usersPanel = {
@@ -70,6 +81,7 @@ const usersChip = {
 };
 
 const userChip = {
+  position: 'relative',
   display: "flex",
   justifyContent: "space-around",
   alignItems: "center",
@@ -84,6 +96,13 @@ const avatar = {
   opacity: 0.8,
 };
 
+const score = {
+  animation: Animations.scorePopUp,
+  position: "absolute",
+  top: -15,
+  right: -10,
+}
+
 export default {
   container,
   questionBox,
@@ -97,4 +116,5 @@ export default {
   usersChip,
   userChip,
   avatar,
+  score
 };

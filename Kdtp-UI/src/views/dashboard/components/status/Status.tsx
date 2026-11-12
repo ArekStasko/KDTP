@@ -4,8 +4,13 @@ import { QRCodeSVG } from "qrcode.react";
 import { Panel } from "../../../../ds/components/panel/Panel.tsx";
 import { DsColor } from "../../../../ds/color.ts";
 import { Tag } from "../../../../ds/components/tag/Tag.tsx";
+import type {Player} from "../../../../api/models/Player.ts";
 
-export const Status = () => {
+export type StatusProps = {
+    players: Player[];
+}
+
+export const Status = ({players}: StatusProps) => {
   return (
     <Box sx={styles.container}>
       <Panel
@@ -31,7 +36,7 @@ export const Status = () => {
         color={DsColor.Black}
         sx={styles.playersStatus}
       >
-        <Typography variant="h4">6</Typography>
+        <Typography variant="h4">{players.length}</Typography>
         <Typography>GRACZY DOLACZONYCH !</Typography>
       </Panel>
     </Box>

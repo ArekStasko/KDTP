@@ -1,19 +1,18 @@
-import { Box, Typography } from "@mui/material";
-import {
-  useGetPlayersQuery,
-  useGetQuestionsSetQuery,
-} from "../../api/RTK/Game.ts";
-import { useEffect, useMemo, useState } from "react";
-import type { QuestionSet } from "../../api/models/QuestionSet.ts";
-import { Question } from "./Question.tsx";
+import {Box, Typography} from "@mui/material";
+import {useGetPlayersQuery, useGetQuestionsSetQuery,} from "../../api/RTK/Game.ts";
+import {useEffect, useMemo, useState} from "react";
+import type {QuestionSet} from "../../api/models/QuestionSet.ts";
+import {Question} from "./Question.tsx";
 import styles from "./styles.ts";
-import { DsColor } from "../../ds/color.ts";
-import { Chip } from "../../ds/components/chip/Chip.tsx";
-import { Panel } from "../../ds/components/panel/Panel.tsx";
-import { Avatar } from "../../ds/components/avatar/Avatar.tsx";
-import { avatars } from "../../ds/avatars/avatars.ts";
-import { Pin } from "../../ds/components/pin/Pin.tsx";
-import { useEvent } from "../../common/eventContext/eventContext.tsx";
+import {DsColor} from "../../ds/color.ts";
+import {Chip} from "../../ds/components/chip/Chip.tsx";
+import {Panel} from "../../ds/components/panel/Panel.tsx";
+import {Avatar} from "../../ds/components/avatar/Avatar.tsx";
+import {avatars} from "../../ds/avatars/avatars.ts";
+import {Pin} from "../../ds/components/pin/Pin.tsx";
+import {useEvent} from "../../common/eventContext/eventContext.tsx";
+import {LoadingScreen} from "../../common/loadingScreen/LoadingScreen.tsx";
+import Results from "../results/Results.tsx";
 
 const colors = [
   DsColor.HotPink,
@@ -35,9 +34,10 @@ const borderColors = [
 
 const QuestionsContext = () => {
   const { roundCompleted, submittedPlayers, clearSubmittedPlayers, clearRoundCompleted } = useEvent();
-  const { data: questionsSet } = useGetQuestionsSetQuery();
+  const { data: questionsSet, isLoading } = useGetQuestionsSetQuery();
   const { data: players, refetch } = useGetPlayersQuery();
   const [gameCompleted, setGameCompleted] = useState(false);
+  const [displayScore, setDisplayScore] = useState(false);
   const [currentQuestion, setCurrentQuestion] = useState<QuestionSet | null>(
     null,
   );
@@ -61,9 +61,13 @@ const QuestionsContext = () => {
       setGameCompleted(true);
       return;
     }
-    clearSubmittedPlayers();
-    clearRoundCompleted();
-    setCurrentQuestion(questionsSet[currentQuestionIndex+1]);
+    setDisplayScore(true);
+    setTimeout(() => {
+      clearSubmittedPlayers();
+      clearRoundCompleted();
+      setDisplayScore(false);
+      setCurrentQuestion(questionsSet[currentQuestionIndex+1]);
+    }, 5000);
   }, [roundCompleted]);
 
   const PlayersState = useMemo(() => {
@@ -73,7 +77,7 @@ const QuestionsContext = () => {
       <>
         <Typography variant="h6">GLOSOWANIE</Typography>
         <Box sx={styles.usersCount}>
-          <Typography>{submittedCount}/6 ZAGLOSOWALO</Typography>
+          <Typography>{submittedCount}/{players?.length} ZAGLOSOWALO</Typography>
         </Box>
         <Box sx={styles.usersChip}>
           {players?.map((p, index) => (
@@ -89,19 +93,32 @@ const QuestionsContext = () => {
                 sx={styles.avatar}
               />
               <Typography>{p.username}</Typography>
-              <Pin color={DsColor.LimeGreen} />
+              <Pin color={(submittedPlayers.includes(p.id) || roundCompleted.length !== 0 ) ? DsColor.LimeGreen : DsColor.TagGrayBorder} />
+              {
+                  displayScore && roundCompleted && (
+                      <Chip sx={styles.score} color={DsColor.LimeGreen} borderColor={DsColor.Black}>
+                        <Typography>
+                          +
+                          {roundCompleted.find(s => s.PlayerId === p.id)?.Score}
+                        </Typography>
+                      </Chip>
+                  )
+              }
             </Chip>
           ))}
         </Box>
       </>
     );
-  }, [players, submittedPlayers, roundCompleted]);
+  }, [players, submittedPlayers, roundCompleted, displayScore]);
 
   return (
     <Box sx={styles.container}>
-      {(!gameCompleted && currentQuestion) && (
+      {
+        <LoadingScreen isLoading={isLoading} />
+      }
+      {(!gameCompleted && currentQuestion && !isLoading) && (
         <Box sx={styles.wrapper}>
-          <Question question={currentQuestion} />
+          <Question question={currentQuestion} displayScore={displayScore} />
           <Box sx={styles.usersBox}>
             <Panel
               sx={styles.usersPanel}
@@ -113,6 +130,9 @@ const QuestionsContext = () => {
           </Box>
         </Box>
       )}
+      {
+        gameCompleted && <Results />
+      }
     </Box>
   );
 };

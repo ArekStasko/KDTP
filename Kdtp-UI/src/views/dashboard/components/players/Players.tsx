@@ -3,11 +3,13 @@ import styles from "./styles.ts";
 import { Panel } from "../../../../ds/components/panel/Panel.tsx";
 import { DsColor } from "../../../../ds/color.ts";
 import { PlayerPanel } from "./PlayerPanel.tsx";
-import { useGetPlayersQuery } from "../../../../api/RTK/Game.ts";
 import type { Player } from "../../../../api/models/Player.ts";
 
-export const Players = () => {
-  const { data: players, isLoading, isError } = useGetPlayersQuery();
+export type PlayersProps = {
+  players: Player[];
+}
+
+export const Players = ({players}: PlayersProps) => {
 
   return (
     <Box sx={styles.container}>
@@ -22,10 +24,11 @@ export const Players = () => {
         </Panel>
         <Divider sx={styles.divider} orientation="horizontal" />
       </Box>
-      {(!isLoading || !isError) &&
+      {
         players?.map((player: Player, index) => (
-          <PlayerPanel player={player} index={index} />
-        ))}
+            <PlayerPanel player={player} index={index} />
+        ))
+      }
     </Box>
   );
 };

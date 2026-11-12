@@ -4,7 +4,7 @@ const container = {
   display: "flex",
   flexDirection: "column",
   alignItems: "center",
-  justifyContent: "center",
+  justifyContent: "start",
   width: "30%",
   height: "100%",
   gap: 3,
@@ -16,7 +16,7 @@ const qrWrapper = {
   flexDirection: "column",
   alignItems: "center",
   justifyContent: "space-around",
-  height: "30%",
+  height: "35%",
   pr: 6,
   pl: 6,
 };
