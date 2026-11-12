@@ -30,6 +30,10 @@ public class AnswerService(IGameState gameState, IRealtimeNotifier realtimeNotif
                         PlayerId = p.Id,
                         Score = p.LastSubmittedAnswer ? singlePoints : 0
                     });
+                    
+                    if(p.LastSubmittedAnswer)
+                        p.Score += singlePoints;
+                    
                     p.HasSubmittedAnswer = false;
                 });
             }

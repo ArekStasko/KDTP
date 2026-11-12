@@ -2,12 +2,21 @@ import { DsColor } from "../../ds/color.ts";
 import { Animations } from "../../ds/animations/animations.ts";
 
 const container = (color: DsColor, top?: boolean) => ({
+  position: "absolute",
+  zIndex: 10,
+  top: top ? 0 : "auto",
+  bottom: top ? "auto" : 0,
+  left: 0,
   width: "100%",
   overflow: "hidden",
   p: 1,
   backgroundColor: color,
-  borderBottom: top ? `3px solid ${DsColor.Black}` : "none",
-  borderTop: top ? "none" : `3px solid ${DsColor.Black}`,
+  borderBottom: top
+      ? `3px solid ${DsColor.Black}`
+      : "none",
+  borderTop: top
+      ? "none"
+      : `3px solid ${DsColor.Black}`,
 });
 
 const track = (top?: boolean) => ({

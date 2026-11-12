@@ -8,7 +8,6 @@ const container = {
   justifyContent: "flex-start",
   width: "50%",
   height: "90%",
-  pt: 20,
   m: 1,
 };
 
@@ -39,7 +38,8 @@ const panel = (delay: number) => ({
   alignItems: "center",
   justifyContent: "space-between",
   width: "90%",
-  height: "12%",
+  height: "14%",
+  mt: 3,
   animation: Animations.jiggle,
   animationDelay: `${delay} * 0.3s`,
 });
