@@ -58,10 +58,18 @@ const QuestionsContext = () => {
     const currentQuestionIndex = questionsSet.findIndex(q => q.question.id === currentQuestion.question.id);
     if(currentQuestionIndex == questionsSet.length-1)
     {
-      setGameCompleted(true);
+      setTimeout(() => {
+        setDisplayScore(true);
+      }, 1000)
+
+      setTimeout(() => {
+        setGameCompleted(true);
+      }, 5000);
       return;
     }
-    setDisplayScore(true);
+    setTimeout(() => {
+      setDisplayScore(true);
+    }, 1000)
     setTimeout(() => {
       clearSubmittedPlayers();
       clearRoundCompleted();

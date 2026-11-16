@@ -86,6 +86,7 @@ const userChip = {
   justifyContent: "space-around",
   alignItems: "center",
   p: 1,
+  mt:1,
 };
 
 const avatar = {

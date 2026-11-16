@@ -32,14 +32,16 @@ const UserAnswersContext = () => {
     const currentQuestionIndex = questionsSet.findIndex(q => q.question.id === currentQuestion.question.id);
     if(currentQuestionIndex == questionsSet.length-1)
     {
-      setGameCompleted(true);
+      setTimeout(() => {
+        setGameCompleted(true);
+      }, 5000);
       return;
     }
     setTimeout(() => {
       clearSubmittedPlayers();
       clearRoundCompleted();
       setCurrentQuestion(questionsSet[currentQuestionIndex+1]);
-    }, 5000);
+    }, 6000);
   }, [roundCompleted]);
 
   return (

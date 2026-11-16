@@ -29,6 +29,7 @@ const panel = {
     alignItems: "center",
     justifyContent: "space-around",
     width: "90%",
+    mt:3,
 }
 
 const tag = {

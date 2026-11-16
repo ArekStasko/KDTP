@@ -35,7 +35,7 @@ const Results = () => {
             <Typography sx={styles.title} variant="h3">Wyniki</Typography>
             <Typography sx={styles.title} variant="h5">Klasyfikacja najlepszych debili</Typography>
             <Panel sx={styles.wrapper} color={DsColor.ElectricYellow} backgroundColor={DsColor.White}>
-            {!isLoading && players && players.map((player, index) => (
+            {!isLoading && players && players.sort(p => p.score).map((player, index) => (
                 <Panel
                     sx={styles.panel}
                     color={colors[index]}
