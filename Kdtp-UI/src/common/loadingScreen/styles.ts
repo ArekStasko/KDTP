@@ -1,3 +1,5 @@
+import {theme} from "../../theme.ts";
+
 const container = {
     width: '40%',
     height: '50%',
@@ -6,6 +8,11 @@ const container = {
     flexDirection: 'column',
     alignItems: 'center',
     justifyContent: 'space-between',
+    [theme.breakpoints.down('md')]: {
+        width: '80%',
+        height: '70%',
+    }
+
 }
 
 export default {

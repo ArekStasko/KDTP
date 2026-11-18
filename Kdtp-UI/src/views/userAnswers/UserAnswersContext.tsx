@@ -47,7 +47,7 @@ const UserAnswersContext = () => {
   return (
     <Box sx={styles.container}>
       {
-        <LoadingScreen isLoading={isLoading} />
+        <LoadingScreen isLoading={true} />
       }
       {(!gameCompleted && currentQuestion && !isLoading) && <UserAnswers questionSet={currentQuestion} />}
     </Box>
