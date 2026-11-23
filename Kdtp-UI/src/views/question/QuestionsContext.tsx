@@ -36,7 +36,7 @@ const QuestionsContext = () => {
   const { roundCompleted, submittedPlayers, clearSubmittedPlayers, clearRoundCompleted } = useEvent();
   const { data: questionsSet, isLoading } = useGetQuestionsSetQuery();
   const { data: players, refetch } = useGetPlayersQuery();
-  const [gameCompleted, setGameCompleted] = useState(false);
+  const [gameCompleted, setGameCompleted] = useState(true);
   const [displayScore, setDisplayScore] = useState(false);
   const [currentQuestion, setCurrentQuestion] = useState<QuestionSet | null>(
     null,
